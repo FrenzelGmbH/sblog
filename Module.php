@@ -5,7 +5,7 @@ namespace frenzelgmbh\golfteamplanner;
 use yii\base\Module as BaseModule;
 
 /**
- * Golf Team Planner Module
+ * Smart Weblog Module for Yii2
  *
  * @author Philipp frenzel <philipp@frenzel.net>
  */
@@ -30,11 +30,11 @@ class Module extends BaseModule {
     {
         parent::init();
         
-        \Yii::setAlias('@golfteamplanner', dirname(__FILE__));
-        \Yii::$app->i18n->translations['golfteamplanner'] = [
+        \Yii::setAlias('@sblog', dirname(__FILE__));
+        \Yii::$app->i18n->translations['sblog'] = [
             'class' => 'yii\i18n\PhpMessageSource',
             'sourceLanguage' => 'en-US',
-            'basePath' => '@golfteamplanner/messages',
+            'basePath' => '@sblog/messages',
         ];
     }
 
