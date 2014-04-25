@@ -4,7 +4,7 @@ namespace frenzelgmbh\sblog\controllers;
 
 use Yii;
 use yii\filters\VerbFilter;
-use app\modules\app\controllers\AppController;
+use frenzelgmbh\appcommon\controllers\AppController;
 use frenzelgmbh\sblogmodels\WidgetConfig;
 use yii\data\ActiveDataProvider;
 

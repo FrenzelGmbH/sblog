@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]);
         },
         'filterType' => GridView::FILTER_SELECT2,
-        'filter'=>\app\modules\app\components\User::pdUsers(), 
+        'filter'=>\frenzelgmbh\appcommon\components\User::pdUsers(), 
         'filterWidgetOptions'=>[
             'pluginOptions' => ['allowClear' => true],
         ],

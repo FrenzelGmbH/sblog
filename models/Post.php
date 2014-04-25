@@ -75,7 +75,7 @@ class Post extends \yii\db\ActiveRecord
 	 * @return [type] [description]
 	 */
 	public function getAuthor() {
-		return $this->hasOne('\app\modules\app\components\User', array('id' => 'author_id'));
+		return $this->hasOne('\frenzelgmbh\appcommon\components\User', array('id' => 'author_id'));
 	}
 
 	/**
