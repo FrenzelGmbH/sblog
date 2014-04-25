@@ -27,7 +27,10 @@
     "kartik-v/social": "dev-master",
     "philippfrenzel/yiiwymeditor":"dev-master",
     "frenzelgmbh/appcommon":"dev-master",
-    "suin/php-rss-writer": ">=1.0"
+    "suin/php-rss-writer": ">=1.0",
+    "2amigos/yii2-leaflet-markercluster-plugin": "*",
+    "2amigos/yii2-leaflet-extension": "*",
+    "2amigos/yii2-leaflet-makimarker-plugin": "*"
   },
   "require-dev": {
     "yiisoft/yii2-codeception": "*",
