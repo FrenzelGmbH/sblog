@@ -5,7 +5,7 @@ use Yii;
 use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
 use frenzelgmbh\sblog\models\WidgetConfig;
-use app\modules\app\widgets\AdminPortlet;
+use frenzelgmbh\appcommon\widgets\AdminPortlet;
 
 class WidgetBlogMap extends AdminPortlet
 {

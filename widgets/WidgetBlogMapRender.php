@@ -5,7 +5,7 @@ use Yii;
 use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
 use frenzelgmbh\sblog\models\WidgetConfig;
-use app\modules\app\widgets\Portlet;
+use frenzelgmbh\appcommon\widgets\Portlet;
 
 class WidgetBlogMapRender extends Portlet
 {

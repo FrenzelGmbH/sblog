@@ -1,7 +1,7 @@
 <?php 
 use \yii\helpers\Html;
 
-use app\modules\app\helpers\HighlightHelper;
+use frenzelgmbh\appcommon\helpers\HighlightHelper;
 ?>
 
 <div class="row">

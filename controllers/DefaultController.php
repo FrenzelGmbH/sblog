@@ -4,7 +4,7 @@ namespace frenzelgmbh\sblog\controllers;
 
 use Yii;
 use yii\filters\VerbFilter;
-use app\modules\app\controllers\AppController;
+use frenzelgmbh\appcommon\controllers\AppController;
 
 class DefaultController extends AppController
 {
@@ -39,7 +39,7 @@ class DefaultController extends AppController
 
 	public function actionIndex()
 	{
-    $this->layout = \app\modules\app\controllers\AppController::adminlayout;
+    $this->layout = \frenzelgmbh\appcommon\controllers\AppController::adminlayout;
 		return $this->render('index');
 	}
 }

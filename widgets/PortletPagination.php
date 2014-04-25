@@ -5,7 +5,7 @@ use Yii;
 use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
 use frenzelgmbh\sblogmodels\WidgetConfig;
-use app\modules\app\widgets\Portlet;
+use frenzelgmbh\appcommon\widgets\Portlet;
 
 class PortletPagination extends Portlet
 {

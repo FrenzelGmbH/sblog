@@ -3,7 +3,7 @@
 namespace frenzelgmbh\sblog\controllers;
 
 use Yii;
-use app\modules\app\controllers\AppController;
+use frenzelgmbh\appcommon\controllers\AppController;
 
 use frenzelgmbh\sblogmodels\Post;
 use frenzelgmbh\sblogmodels\PostForm;
@@ -12,7 +12,7 @@ use yii\web\HttpException;
 use yii\filters\VerbFilter;
 
 //NLP Classes
-use app\modules\app\nlpclassifier\EndOfSentence;
+use frenzelgmbh\appcommon\nlpclassifier\EndOfSentence;
 use \NlpTools\Tokenizers\ClassifierBasedTokenizer;
 use \NlpTools\Tokenizers\WhitespaceTokenizer;
 
@@ -68,7 +68,7 @@ class PostController extends AppController
 	 */
 	public function actionIndex()
 	{
-		$this->layout = \app\modules\app\controllers\AppController::adminlayout;
+		$this->layout = \frenzelgmbh\appcommon\controllers\AppController::adminlayout;
 		$searchModel = new PostSearch;
 		$dataProvider = $searchModel->search($_GET);
 
@@ -157,7 +157,7 @@ class PostController extends AppController
 	 */
 	public function actionCreate()
 	{
-		$this->layout = \app\modules\app\controllers\AppController::adminlayout;
+		$this->layout = \frenzelgmbh\appcommon\controllers\AppController::adminlayout;
 		$model = new Post;
 
 		if ($model->load(\Yii::$app->request->post()) && $model->save()) {
@@ -177,7 +177,7 @@ class PostController extends AppController
 	 */
 	public function actionUpdate($id)
 	{
-		$this->layout = \app\modules\app\controllers\AppController::adminlayout;
+		$this->layout = \frenzelgmbh\appcommon\controllers\AppController::adminlayout;
 		$model = $this->findModel($id);
 
 		if ($model->load(\Yii::$app->request->post()) && $model->save()) {

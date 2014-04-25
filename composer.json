@@ -25,7 +25,9 @@
     "kartik-v/yii2-grid": "dev-master",
     "kartik-v/yii2-widgets": "dev-master",
     "kartik-v/social": "dev-master",
-    "philippfrenzel/yiiwymeditor":"dev-master"
+    "philippfrenzel/yiiwymeditor":"dev-master",
+    "frenzelgmbh/appcommon":"dev-master",
+    "suin/php-rss-writer": ">=1.0"
   },
   "require-dev": {
     "yiisoft/yii2-codeception": "*",

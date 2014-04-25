@@ -6,7 +6,7 @@ use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
 use app\modules\workflow\models\Workflow;
 
-class PortletSidemenu extends \app\modules\app\widgets\AdminPortlet
+class PortletSidemenu extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 {
 	public $title='Menu';
 	

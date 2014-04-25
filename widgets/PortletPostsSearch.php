@@ -7,7 +7,7 @@ use yii\helpers\Html;
 use frenzelgmbh\sblogmodels\Post;
 use frenzelgmbh\sblogmodels\PostSearch;
 
-class PortletPostsSearch extends \app\modules\app\widgets\AdminPortlet
+class PortletPostsSearch extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 {
 	public $title='Post Search';
 

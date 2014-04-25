@@ -8,7 +8,7 @@ use yii\helpers\Url;
 use yii\data\ActiveDataProvider;
 use frenzelgmbh\sblog\models\Post;
 
-class PortletPostsAdmin extends \app\modules\app\widgets\AdminPortlet
+class PortletPostsAdmin extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 {
 	public $title='Blog Admin';
 

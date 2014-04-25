@@ -6,7 +6,7 @@ use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
 use frenzelgmbh\sblog\models\Post;
 
-class PortletPosts extends \app\modules\app\widgets\AdminPortlet
+class PortletPosts extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 {
 	public $title='Blog';
 	
