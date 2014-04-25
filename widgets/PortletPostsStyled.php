@@ -4,7 +4,7 @@ namespace frenzelgmbh\sblog\widgets;
 use Yii;
 use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
-use frenzelgmbh\sblogmodels\Post;
+use frenzelgmbh\sblog\models\Post;
 
 class PortletPostsStyled extends \frenzelgmbh\appcommon\widgets\Portlet
 {

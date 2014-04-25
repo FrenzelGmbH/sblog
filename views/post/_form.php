@@ -17,7 +17,7 @@ use app\modules\workflow\models\Workflow;
 
 /**
  * @var yii\base\View $this
- * @var frenzelgmbh\sblogmodels\Post $model
+ * @var frenzelgmbh\sblog\models\Post $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>

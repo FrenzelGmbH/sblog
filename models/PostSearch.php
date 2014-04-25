@@ -4,7 +4,7 @@ namespace frenzelgmbh\sblog\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frenzelgmbh\sblogmodels\Post;
+use frenzelgmbh\sblog\models\Post;
 
 /**
  * PostSearch represents the model behind the search form about Post.

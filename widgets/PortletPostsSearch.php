@@ -4,8 +4,8 @@ namespace frenzelgmbh\sblog\widgets;
 use Yii;
 use yii\helpers\Html;
 
-use frenzelgmbh\sblogmodels\Post;
-use frenzelgmbh\sblogmodels\PostSearch;
+use frenzelgmbh\sblog\models\Post;
+use frenzelgmbh\sblog\models\PostSearch;
 
 class PortletPostsSearch extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 {

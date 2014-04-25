@@ -4,7 +4,7 @@ namespace frenzelgmbh\sblog\widgets;
 use Yii;
 use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
-use frenzelgmbh\sblogmodels\WidgetConfig;
+use frenzelgmbh\sblog\models\WidgetConfig;
 use frenzelgmbh\appcommon\widgets\Portlet;
 
 class PortletPagination extends Portlet

@@ -5,9 +5,9 @@ namespace frenzelgmbh\sblog\controllers;
 use Yii;
 use frenzelgmbh\appcommon\controllers\AppController;
 
-use frenzelgmbh\sblogmodels\Post;
-use frenzelgmbh\sblogmodels\PostForm;
-use frenzelgmbh\sblogmodels\PostSearch;
+use frenzelgmbh\sblog\models\Post;
+use frenzelgmbh\sblog\models\PostForm;
+use frenzelgmbh\sblog\models\PostSearch;
 use yii\web\HttpException;
 use yii\filters\VerbFilter;
 

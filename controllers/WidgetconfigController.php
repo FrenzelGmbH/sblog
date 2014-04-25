@@ -5,7 +5,7 @@ namespace frenzelgmbh\sblog\controllers;
 use Yii;
 use yii\filters\VerbFilter;
 use frenzelgmbh\appcommon\controllers\AppController;
-use frenzelgmbh\sblogmodels\WidgetConfig;
+use frenzelgmbh\sblog\models\WidgetConfig;
 use yii\data\ActiveDataProvider;
 
 class WidgetconfigController extends AppController
