@@ -46,7 +46,7 @@ class PortletPosts extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 		      ),
 	  	));
 		//here we don't return the view, here we just echo it!
-		echo $this->render('@sblog/widgets/views/_posts',array('dpPosts'=>$dpPosts));
+		echo $this->render('@frenzelgmbh/sblog/widgets/views/_posts',array('dpPosts'=>$dpPosts));
 	}
 
 	/**

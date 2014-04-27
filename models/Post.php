@@ -1,6 +1,6 @@
 <?php
 
-namespace frenzelgmbh\sblogmodels;
+namespace frenzelgmbh\sblog\models;
 
 use Yii;
 

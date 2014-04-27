@@ -43,7 +43,7 @@ class PortletPostsAdmin extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 		}
 
 		//here we don't return the view, here we just echo it!
-		echo $this->render('@sblog/widgets/views/_admin',array('menuItems'=>$this->menuItems));
+		echo $this->render('@frenzelgmbh/sblog/widgets/views/_admin',array('menuItems'=>$this->menuItems));
 	}
 
 	/**

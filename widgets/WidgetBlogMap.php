@@ -31,7 +31,7 @@ class WidgetBlogMap extends AdminPortlet
 		  'query' => $query,
 	  ));
 		//here we don't return the view, here we just echo it!
-		echo $this->render('@sblog/widgets/views/_mapwidget',['dpLocations'=>$dpLocations,'module'=>$this->module,'id'=>$this->id]);
+		echo $this->render('@frenzelgmbh/sblog/widgets/views/_mapwidget',['dpLocations'=>$dpLocations,'module'=>$this->module,'id'=>$this->id]);
 	}
 
 }

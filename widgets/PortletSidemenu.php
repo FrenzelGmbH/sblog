@@ -31,7 +31,7 @@ class PortletSidemenu extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 	protected function renderContent()
 	{
 		//here we don't return the view, here we just echo it!
-		echo $this->render('@sblog/widgets/views/_sidemenu',array('sideMenu'=>$this->sideMenu));
+		echo $this->render('@frenzelgmbh/sblog/widgets/views/_sidemenu',array('sideMenu'=>$this->sideMenu));
 	}
 
 	/**

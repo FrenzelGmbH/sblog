@@ -50,7 +50,7 @@ class PortletPostsStyled extends \frenzelgmbh\appcommon\widgets\Portlet
 		      ),
 	  	));
 		//here we don't return the view, here we just echo it!
-		echo $this->render('@sblog/widgets/views/_posts_styled',array('dpPosts'=>$dpPosts));
+		echo $this->render('@frenzelgmbh/sblog/widgets/views/_posts_styled',array('dpPosts'=>$dpPosts));
 	}
 
 	/**

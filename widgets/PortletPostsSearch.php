@@ -31,6 +31,6 @@ class PortletPostsSearch extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 			if($model->searchstring!=='')
 				$hits = Post::searchByString($model->searchstring)->all();
 		}
-		echo $this->render('@sblog/widgets/views/_search',array('model'=>$model,'hits'=>$hits));
+		echo $this->render('@frenzelgmbh/sblog/widgets/views/_search',array('model'=>$model,'hits'=>$hits));
 	}
 }

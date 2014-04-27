@@ -28,7 +28,7 @@ class WidgetBlogMapRender extends Portlet
 	  if(!is_null($dpLocations))
 	  {
 			//here we don't return the view, here we just echo it!
-			echo $this->render('@sblog/widgets/views/_mapwidget_renderer',['dpLocations'=>$dpLocations]);
+			echo $this->render('@frenzelgmbh/sblog/widgets/views/_mapwidget_renderer',['dpLocations'=>$dpLocations]);
 		}
 		else
 		{

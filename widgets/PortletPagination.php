@@ -22,7 +22,7 @@ class PortletPagination extends Portlet
 	protected function renderContent()
 	{
 		//here we don't return the view, here we just echo it!
-		echo $this->render('@sblog/widgets/views/_post_pagination',['model'=>$this->model]);
+		echo $this->render('@frenzelgmbh/sblog/widgets/views/_post_pagination',['model'=>$this->model]);
 	}
 
 }
