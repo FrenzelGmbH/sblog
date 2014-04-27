@@ -1,6 +1,6 @@
 <?php
 
-namespace frenzelgmbh\golfteamplanner;
+namespace frenzelgmbh\sblog;
 
 use yii\base\Module as BaseModule;
 
