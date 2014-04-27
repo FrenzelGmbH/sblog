@@ -101,7 +101,7 @@ $this->params['breadcrumbs'][] = $this->title;
   </div>
   <div class="post-content">
     <?= str_replace('READMORE', '', $model->content); ?>
-    <?= frenzelgmbh\sblogwidgets\WidgetBlogMapRender::widget(array(
+    <?= frenzelgmbh\sblogwidgets\Widget\BlogMapRender::widget(array(
       'module'=> app\modules\workflow\models\Workflow::MODULE_BLOG,
       'id'    => $model->id
     )); ?>
