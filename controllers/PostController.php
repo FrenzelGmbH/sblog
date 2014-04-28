@@ -105,7 +105,7 @@ class PostController extends AppController
 		$text = strip_tags($model->content);
 		$sentences = $tok->tokenize($text);
 		$this->metakeywords = $model->tags;
-		$this->metadescription = substr($sentences[0],0,154);
+		$this->metadescription = $model->title . ' ' . substr($sentences[0],0,100);
 
 		return $this->render('onlineview', [
 			'model' => $model,
@@ -129,7 +129,7 @@ class PostController extends AppController
 		$text = strip_tags($model->content);
 		$sentences = $tok->tokenize($text);
 		$this->metakeywords = $model->tags;
-		$this->metadescription = substr($sentences[0],0,154);
+		$this->metadescription = $model->title . ' ' . substr($sentences[0],0,100);
 		
 		return $this->render('onlineview', [
 			'model' => $model,
