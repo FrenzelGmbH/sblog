@@ -17,6 +17,7 @@ class PortletPagination extends Portlet
 
 	public function init() {
 		parent::init();
+		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 	}
 
 	protected function renderContent()

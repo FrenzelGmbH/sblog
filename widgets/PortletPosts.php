@@ -25,10 +25,11 @@ class PortletPosts extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 	public $htmlOptions=array();
 
 	public function init() {
+		parent::init();
+		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 		if(isset($_GET['tag'])){
 			$this->title = "Posts <small>Tagged with <i>".Html::encode($_GET['tag'])."</i></small>";
 		}
-		parent::init();
 	}
 
 	protected function renderContent()

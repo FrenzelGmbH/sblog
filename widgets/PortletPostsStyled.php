@@ -25,10 +25,11 @@ class PortletPostsStyled extends \frenzelgmbh\appcommon\widgets\Portlet
 	public $htmlOptions=array();
 
 	public function init() {
+		parent::init();
+		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 		if(isset($_GET['tag'])){
 			$this->title = "<div class='pull-right'>Posts Tagged with <strong>".Html::encode($_GET['tag'])."</strong></div>";
 		}
-		parent::init();
 	}
 
 	protected function renderContent()

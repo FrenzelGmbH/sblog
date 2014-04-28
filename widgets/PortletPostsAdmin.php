@@ -32,6 +32,7 @@ class PortletPostsAdmin extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 
 	public function init() {
 		parent::init();
+		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 	}
 
 	protected function renderContent()
