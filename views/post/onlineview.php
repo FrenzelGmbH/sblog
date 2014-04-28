@@ -97,7 +97,7 @@ $this->params['breadcrumbs'][] = $this->title;
       <?= date("M", strtotime($model->time_create)); ?><br>
       <?= date("d", strtotime($model->time_create)); ?>
     </div>
-    <h3 class="lspace subline"><a href="<?=\Yii::$app->urlManager->createAbsoluteUrl(['/posts/post/onlineview', 'id' => $model->id, 'title'=>Html::encode(strtoupper($model->title))]); ?>" class="c_black"><?= Html::encode(strtoupper($model->title)); ?></a></h3>
+    <h1 class="lspace subline"><a href="<?=\Yii::$app->urlManager->createAbsoluteUrl(['/posts/post/onlineview', 'id' => $model->id, 'title'=>Html::encode(strtoupper($model->title))]); ?>" class="c_black"><?= Html::encode(strtoupper($model->title)); ?></a></h1>
   </div>
   <div class="post-content">
     <?= str_replace('READMORE', '', $model->content); ?>
