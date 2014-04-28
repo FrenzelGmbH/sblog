@@ -1,0 +1,52 @@
+.post-box{
+  margin-bottom: 35px;
+  border: 2px solid #ffffff;
+  position: relative;
+  box-shadow:
+  0 0 0 10px #f0f4fa,
+  0 0 0 15px #ffffff;
+}
+
+.post-header{
+  padding-bottom: 20px;
+  padding-top: 10px;  
+  font-family: StMarie, sans-serif;
+  letter-spacing: 0.2em;
+}
+
+.post-header > h1,h2{
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.0em;
+}
+
+.post-content{
+  font-size: 16px;
+  font-family: railways, sans-serif;
+  font-weight: 600;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 20px;
+}
+
+.post-footer{
+  border-top: 1px solid #ffffff;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 20px;
+}
+
+.datebox{
+  border-radius: 50%;
+  border: 6px solid white;
+  box-shadow: 0px 0px 4px #318A6D;
+  background-color: #b9f2d8;
+  height: 60px;
+  width: 60px;
+  font-family: StMarie, sans-serif;
+  letter-spacing: 0.0em;
+  text-align: center;
+  padding-top: 6px;
+  font-weight: 600;
+  margin-top: -10px;
+}

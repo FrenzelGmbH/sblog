@@ -37,6 +37,9 @@ class Module extends BaseModule {
             'sourceLanguage' => 'en-US',
             'basePath' => '@frenzelgmbh/sblog/messages',
         ];
+        //get the displayed view and register the needed assets
+        $view = $this->getView();
+        sblogAsset::register($view);
     }
 
 }
