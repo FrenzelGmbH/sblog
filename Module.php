@@ -38,8 +38,8 @@ class Module extends BaseModule {
             'basePath' => '@frenzelgmbh/sblog/messages',
         ];
         //get the displayed view and register the needed assets
-        $view = $this->getView();
-        sblogAsset::register($view);
+        //as we have no view in this context we need to make the way over the $app->view
+        sblogAsset::register(Yii::$app->view);
     }
 
 }
