@@ -22,8 +22,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <fieldset class="fieldbodysc bg_white">
   <?php
-    if(class_exists('frenzelgmbh\sblogwidgets\PortletPostsSearch')){
-      echo frenzelgmbh\sblogwidgets\PortletPostsSearch::widget(array(
+    if(class_exists('frenzelgmbh\sblog\widgets\PortletPostsSearch')){
+      echo frenzelgmbh\sblog\widgets\PortletPostsSearch::widget(array(
         'maxResults'=> 5,
         'title' => NULL
       ));
@@ -131,8 +131,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?php
-  if(class_exists('\frenzelgmbh\sblogwidgets\PortletPagination')){
-    echo \frenzelgmbh\sblogwidgets\PortletPagination::widget(array(
+  if(class_exists('\frenzelgmbh\sblog\widgets\PortletPagination')){
+    echo \frenzelgmbh\sblog\widgets\PortletPagination::widget(array(
       'model'=>$model,
     )); 
   }

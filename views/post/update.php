@@ -34,8 +34,8 @@ $this->params['breadcrumbs'][] = 'Update';
   ?>
 
   <?php
-    if(class_exists('frenzelgmbh\sblogwidgets\WidgetBlogMap')){
-      echo frenzelgmbh\sblogwidgets\WidgetBlogMap::widget([
+    if(class_exists('frenzelgmbh\sblog\widgets\WidgetBlogMap')){
+      echo frenzelgmbh\sblog\widgets\WidgetBlogMap::widget([
         'module'=> app\modules\workflow\models\Workflow::MODULE_BLOG,
         'id' => $model->id,
       ]);

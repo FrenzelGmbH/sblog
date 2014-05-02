@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
   $sideMenu = array();
   $sideMenu[] = array('decoration'=>'sticker sticker-color-yellow','icon'=>'icon-arrow-left','label'=>Yii::t('app','Posts Overview'),'link'=>Url::to(array('/posts/post/index'))); 
 
-  echo frenzelgmbh\sblogwidgets\PortletSidemenu::widget(array(
+  echo frenzelgmbh\sblog\widgets\PortletSidemenu::widget(array(
     'sideMenu'=>$sideMenu,
     'enableAdmin'=>false,
     'htmlOptions'=>array('class'=>'nostyler'),
