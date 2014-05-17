@@ -31,7 +31,8 @@ class WidgetconfigController extends AppController
             'allow'=>true,
             'actions'=>array(
               'index',
-              'addlocation'
+              'addlocation',
+              'addpicturelink'
             ),
             'roles'=>array('@'),
           ],
@@ -77,6 +78,36 @@ class WidgetconfigController extends AppController
       $model->name      = 'MAPWIDGET';
 
       return $this->renderAjax('_form_addlocation', array(
+        'model' => $model,
+      ));
+    }
+  }
+
+  /**
+   * [actionAddpicturelink description]
+   * @param  [type] $module [description]
+   * @param  [type] $id     [description]
+   * @return [type]         [description]
+   */
+  public function actionAddpicturelink($module=NULL,$id=NULL)
+  {
+    $model=new WidgetConfig;
+    if ($model->load(Yii::$app->request->post()) && $model->save()) {
+      $query = WidgetConfig::findRelatedRecords('PICTURELINK', $model->wgt_table, $model->wgt_id);
+      $dpLocations = new ActiveDataProvider(array(
+        'query' => $query,
+      ));
+      echo $this->renderAjax('@frenzelgmbh/sblog/widgets/views/_picture_link_widget',[
+        'dpLocations' => $dpLocations,
+        'module'      => $model->wgt_table,
+        'id'          => $model->wgt_id
+      ]);
+    } else {
+      $model->wgt_id    = $id;
+      $model->wgt_table = $module;
+      $model->name      = 'PICTURELINK';
+
+      return $this->renderAjax('_form_addpicturelink', array(
         'model' => $model,
       ));
     }
