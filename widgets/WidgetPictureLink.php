@@ -14,9 +14,22 @@ class WidgetPictureLink extends AdminPortlet
 	 */
 	const WIDGET_NAME = 'PICTURELINK';
 	
+	/**
+	 * [$title description]
+	 * @var string
+	 */
 	public $title='Picture Link Widget';
 	
+	/**
+	 * [$module description]
+	 * @var string
+	 */
 	public $module = 'GLOBAL';	
+	
+	/**
+	 * [$id description]
+	 * @var integer
+	 */
 	public $id = 1;
 
 	public function init() {

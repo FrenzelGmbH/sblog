@@ -14,9 +14,22 @@ class WidgetBlogMap extends AdminPortlet
 	 */
 	const WIDGET_NAME = 'MAPWIDGET';
 	
+	/**
+	 * [$title description]
+	 * @var string
+	 */
 	public $title='Map Widget';
 	
+	/**
+	 * [$module description]
+	 * @var string
+	 */
 	public $module = 0;	
+	
+	/**
+	 * [$id description]
+	 * @var integer
+	 */
 	public $id = 0;
 
 	public function init() {
@@ -24,6 +37,10 @@ class WidgetBlogMap extends AdminPortlet
 		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 	}
 
+	/**
+	 * Renders the widget
+	 * @return [type] [description]
+	 */
 	protected function renderContent()
 	{
 		$query = WidgetConfig::findRelatedRecords(self::WIDGET_NAME, $this->module, $this->id);

@@ -70,7 +70,7 @@ class WidgetConfig extends \yii\db\ActiveRecord
      */
     public static function findRelatedRecords($WIDGET,$module,$id)
     {
-        return static::find()->where('name = "'.$WIDGET.'" AND wgt_table = '.$module.' AND wgt_id = '.$id);
+        return static::find()->where('name = "'.$WIDGET.'" AND wgt_table = "'.$module.'"" AND wgt_id = '.$id);
     }
 
     /**
