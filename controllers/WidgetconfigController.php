@@ -111,11 +111,11 @@ class WidgetconfigController extends AppController
   {
     if(is_null($module))
     {
-      $model=new WidgetConfig;
+      $model = new WidgetConfig;
     }
     else
     {
-      $model=new WidgetConfig::findOne($id);
+      $model = WidgetConfig::findOne($id);
     } 
     if ($model->load(Yii::$app->request->post()) && $model->save()) {
       $query = WidgetConfig::findRelatedRecords('PICTURELINK', $model->wgt_table, $model->wgt_id);
@@ -123,7 +123,7 @@ class WidgetconfigController extends AppController
         'query' => $query,
       ));
       echo $this->renderAjax('@frenzelgmbh/sblog/widgets/views/_picture_link_widget',[
-        'dpPictures' => $dpPictures,
+        'dpPictures'  => $dpPictures,
         'module'      => $model->wgt_table,
         'id'          => $model->wgt_id
       ]);
