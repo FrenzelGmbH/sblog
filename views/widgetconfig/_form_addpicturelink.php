@@ -14,12 +14,13 @@ $dmsysmodel->dms_id     = $model->id;
 
 ?>
 
+<?= $this->render('@app/modules/dms/views/default/_upload_form', ['model'=> $dmsysmodel]); ?>
+
+
 <?php
 $form = ActiveForm::begin([
   'id' => 'PictureLinkAddForm'
 ]); ?>
-
-  <?= $this->render('@app/modules/dms/views/default/_upload_form', ['model'=> $dmsysmodel]); ?>
 
   <?= $form->field($model, 'param1_str'); ?>
 
@@ -32,7 +33,7 @@ $form = ActiveForm::begin([
   <?= Html::activeHiddenInput($model,'name',['value'=>$model->name]); ?>
 
 	<div class="form-actions">
-    <?= Html::submitButton('<i class="icon-pencil"></i> '.Yii::t('app','add'), array('class' => 'btn btn-success fg-color-white','id'=>'submit_btn')); ?>
+    <?= Html::submitButton('<i class="icon-pencil"></i> '.Yii::t('app','add'), array('class' => 'btn btn-success fg-color-white','id'=>'PictureLinkSubmit')); ?>
 	</div>
 
 <?php 
