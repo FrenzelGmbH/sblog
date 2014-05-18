@@ -3,21 +3,6 @@
 use yii\helpers\Html;
 use yii\widgets\ListView;
 use kartik\icons\Icon;
-use yii\widgets\Pjax;
-
-$script = <<<SKRIPT
-
-$(document).on('submit', '#PictureLinkAddForm', function(event) {
-  $.pjax.submit(event, '#WidgetPictureLinkPjax')
-});
-
-$(document).on('submit', '#PictureLinkImage', function(event) {
-  $.pjax.submit(event, '#WidgetPictureLinkPjax')
-});
-
-SKRIPT;
-
-$this->registerJs($script);
 
 $deleteJS = <<<DEL
 $('.picture-link-box').on('click','.op a.delete',function() {
@@ -41,10 +26,7 @@ DEL;
 $this->registerJs($deleteJS);
 ?>
 
-<div class="panel-body">
-
 <?php
-Pjax::begin(['id'=>'WidgetPictureLinkPjax']);
 
   echo ListView::widget(array(
     'id' => 'PictureLinkTable',
@@ -66,8 +48,3 @@ Pjax::begin(['id'=>'WidgetPictureLinkPjax']);
 </div>
 <?php endif; ?>
 
-<?php
-Pjax::end();
-?>
-
-</div>

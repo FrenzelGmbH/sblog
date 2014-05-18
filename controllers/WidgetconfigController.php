@@ -113,28 +113,30 @@ class WidgetconfigController extends AppController
     if(!is_null($module))
     {
       $model = new WidgetConfig;
+      $model->wgt_id    = $id;
+      $model->wgt_table = $module;
+      $model->name      = 'PICTURELINK';
+      $model->save();
     }
     else
     {
       $model = WidgetConfig::findOne($id);
     } 
     if ($model->load(Yii::$app->request->post()) && $model->save()) {
+      return $this->redirect(['/site/index']);
+      /*
       $query = WidgetConfig::findRelatedRecords('PICTURELINK', $model->wgt_table, $model->wgt_id);
       $dpPictures = new ActiveDataProvider(array(
         'query' => $query,
       ));
+
       echo $this->renderAjax('@frenzelgmbh/sblog/widgets/views/_picture_link_widget',[
         'dpPictures'  => $dpPictures,
         'module'      => $model->wgt_table,
         'id'          => $model->wgt_id
       ]);
-    } else {
-      $model->wgt_id    = $id;
-      $model->wgt_table = $module;
-      $model->name      = 'PICTURELINK';
-
-      $model->save();
-
+      */
+    } else {           
       return $this->renderAjax('_form_addpicturelink', array(
         'model' => $model,
       ));

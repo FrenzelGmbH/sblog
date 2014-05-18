@@ -5,9 +5,9 @@ use Yii;
 use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
 use frenzelgmbh\sblog\models\WidgetConfig;
-use frenzelgmbh\appcommon\widgets\AdminPortlet;
+use frenzelgmbh\appcommon\widgets\Portlet;
 
-class WidgetPictureLink extends AdminPortlet
+class WidgetPictureLink extends Portlet
 {
 	/**
 	 * const WIDGET_NAME must be defined for all widgets!
@@ -32,6 +32,11 @@ class WidgetPictureLink extends AdminPortlet
 	 * @var integer
 	 */
 	public $id = 1;
+
+	/**
+   * @var array the HTML attributes for the portlet container tag.
+   */
+  public $htmlOptions=array('class'=>'nostyler');
 
 	public function init() {
 		parent::init();
