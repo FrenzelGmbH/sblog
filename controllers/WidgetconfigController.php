@@ -98,6 +98,7 @@ class WidgetconfigController extends AppController
     $date = new DateTime();
     $model = $this->findModel($id);
     $model->time_deleted = $date->format('U');
+    $model->save();
     return $this->redirect(['/site/index']);
   }
 
@@ -109,7 +110,7 @@ class WidgetconfigController extends AppController
    */
   public function actionAddpicturelink($module=NULL,$id=NULL)
   {
-    if(is_null($module))
+    if(!is_null($module))
     {
       $model = new WidgetConfig;
     }
@@ -150,6 +151,7 @@ class WidgetconfigController extends AppController
     $date = new DateTime();
     $model = $this->findModel($id);
     $model->time_deleted = $date->format('U');
+    $model->save();
     return $this->redirect(['/site/index']);
   }
 

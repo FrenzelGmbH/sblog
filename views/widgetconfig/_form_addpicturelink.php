@@ -10,7 +10,7 @@ use \yii\web\JsExpression;
 $dmsysmodel             = new \app\modules\dms\models\Dmsys;
 $dmsysmodel->uId        = \Yii::$app->session->id;
 $dmsysmodel->dms_module = $model->wgt_table;
-$dmsysmodel->dms_id     = $model->wgt_id;
+$dmsysmodel->dms_id     = $model->id;
 
 ?>
 
@@ -19,7 +19,6 @@ $form = ActiveForm::begin([
   'id' => 'PictureLinkAddForm'
 ]); ?>
 
-  <img src="<?= Url::to(['/dms/default/getlatestthumb','id'=>$model->wgt_id,'module'=>$model->wgt_table]); ?>" style="height:125px" alt="thumb"/>
   <?= $this->render('@app/modules/dms/views/default/_upload_form', ['model'=> $dmsysmodel]); ?>
 
   <?= $form->field($model, 'param1_str'); ?>
