@@ -48,3 +48,13 @@ if(class_exists('frenzelgmbh\sblog\widgets\WidgetPictureLink')){
   ]); 
 }
 ```
+
+This Widget renders all posts in descendending order which is based upon the creation date of the posts.
+```php
+if(class_exists('frenzelgmbh\sblog\widgets\PortletPostsStyled')){
+  echo frenzelgmbh\sblog\widgets\PortletPostsStyled::widget([
+  'title'=>NULL,
+    'limit'=>4,
+  ]); 
+}
+```
