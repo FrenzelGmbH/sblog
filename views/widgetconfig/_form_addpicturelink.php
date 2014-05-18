@@ -16,6 +16,8 @@ $form = ActiveForm::begin([
 
   <?= $form->field($model, 'param1_str'); ?>
 
+  <?= Html::activeHiddenInput($model,'id',['value'=>$model->id]); ?>
+
   <?= Html::activeHiddenInput($model,'wgt_table',['value'=>$model->wgt_table]); ?>
   
   <?= Html::activeHiddenInput($model,'wgt_id',['value'=>$model->wgt_id]); ?>

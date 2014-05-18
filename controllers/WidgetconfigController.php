@@ -109,7 +109,14 @@ class WidgetconfigController extends AppController
    */
   public function actionAddpicturelink($module=NULL,$id=NULL)
   {
-    $model=new WidgetConfig;
+    if(is_null($module))
+    {
+      $model=new WidgetConfig;
+    }
+    else
+    {
+      $model=new WidgetConfig::findOne($id);
+    } 
     if ($model->load(Yii::$app->request->post()) && $model->save()) {
       $query = WidgetConfig::findRelatedRecords('PICTURELINK', $model->wgt_table, $model->wgt_id);
       $dpPictures = new ActiveDataProvider(array(
@@ -124,6 +131,8 @@ class WidgetconfigController extends AppController
       $model->wgt_id    = $id;
       $model->wgt_table = $module;
       $model->name      = 'PICTURELINK';
+
+      $model->save();
 
       return $this->renderAjax('_form_addpicturelink', array(
         'model' => $model,
