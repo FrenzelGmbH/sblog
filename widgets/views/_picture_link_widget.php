@@ -9,16 +9,20 @@ $script = <<<SKRIPT
 
 $(document).on('submit', '#PictureLinkAddForm', function(event) {
   $.pjax.submit(event, '#WidgetPictureLinkPjax')
-})
+});
+
+$(document).on('submit', '#PictureLinkImage', function(event) {
+  $.pjax.submit(event, '#WidgetPictureLinkPjax')
+});
 
 SKRIPT;
 
 $this->registerJs($script);
 
 $deleteJS = <<<DEL
-$('.post-box').on('click','.op a.delete',function() {
+$('.picture-link-box').on('click','.op a.delete',function() {
     var th=$(this),
-    container=th.closest('div.location-box'),
+    container=th.closest('div.picture-link-box'),
     id=container.attr('id').slice(1);
   if(confirm('Are you sure you want to remove the location #'+id+'?')) {
     $.ajax({
