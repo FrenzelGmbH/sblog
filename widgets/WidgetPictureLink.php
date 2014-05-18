@@ -13,6 +13,7 @@ class WidgetPictureLink extends AdminPortlet
 	 * const WIDGET_NAME must be defined for all widgets!
 	 */
 	const WIDGET_NAME = 'PICTURELINK';
+	const WIDGET_MODULE = 100;
 	
 	/**
 	 * [$title description]
@@ -24,7 +25,7 @@ class WidgetPictureLink extends AdminPortlet
 	 * [$module description]
 	 * @var string
 	 */
-	public $module = 'GLOBAL';	
+	public $module = self::WIDGET_MODULE;	
 	
 	/**
 	 * [$id description]
