@@ -51,7 +51,6 @@ Pjax::begin(['id'=>'WidgetPictureLinkPjax']);
     'emptyText' => ''
     )
   );
-  echo "<p>&nbsp;</p>";
 
 ?>
 
