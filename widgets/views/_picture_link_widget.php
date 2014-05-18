@@ -55,9 +55,9 @@ Pjax::begin(['id'=>'WidgetPictureLinkPjax']);
 ?>
 
 <?php if(!Yii::$app->user->isGuest): ?>
-<div class="navbar navbar-default">
+<div class="nav navbar">
   <?php
-    echo Html::a('<span class="btn btn-success navbar-btn pull-right tipster" title="add location">'.Icon::show('plus', ['class'=>'fa'], Icon::FA).' add picture link</span>', array("/posts/widgetconfig/addpicturelink", 'id'=>$id,'module'=>$module), array('class' => 'create'));  
+    echo Html::a('<span class="btn btn-success navbar-btn tipster" title="add picture link">'.Icon::show('plus', ['class'=>'fa'], Icon::FA).' add picture link</span>', array("/posts/widgetconfig/addpicturelink", 'id'=>$id,'module'=>$module), array('class' => 'create'));  
   ?>
 </div>
 <?php endif; ?>

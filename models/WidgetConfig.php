@@ -70,7 +70,7 @@ class WidgetConfig extends \yii\db\ActiveRecord
      */
     public static function findRelatedRecords($WIDGET,$module,$id)
     {
-        return static::find()->where('name = "'.$WIDGET.'" AND wgt_table = '.$module.' AND wgt_id = '.$id);
+        return static::find()->where('name = "'.$WIDGET.'" AND wgt_table = '.$module.' AND wgt_id = '.$id.' AND time_deleted IS NULL');
     }
 
     /**
@@ -86,7 +86,8 @@ class WidgetConfig extends \yii\db\ActiveRecord
             ->where([
                 'name' => $WIDGET,
                 'wgt_table' => $module,
-                'wgt_id' => $id
+                'wgt_id' => $id,
+                'time_deleted' => 'IS NULL'
             ])
             ->all();
     }
