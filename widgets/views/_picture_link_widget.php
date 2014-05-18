@@ -43,21 +43,25 @@ $this->registerJs($deleteJS);
 Pjax::begin(['id'=>'WidgetPictureLinkPjax']);
 
   echo ListView::widget(array(
-		'id' => 'PictureLinkTable',
-		'dataProvider'=>$dpPictures,
-		'itemView' => '@frenzelgmbh/sblog/widgets/views/iviews/_picture_link_view',
-		'layout' => '{items}',
-		)
-	);
+    'id' => 'PictureLinkTable',
+    'dataProvider'=>$dpPictures,
+    'itemView' => '@frenzelgmbh/sblog/widgets/views/iviews/_picture_link_view',
+    'layout' => '{items}',
+    'showOnEmpty' => false,
+    'emptyText' => ''
+    )
+  );
   echo "<p>&nbsp;</p>";
 
 ?>
 
+<?php if(!Yii::$app->user->isGuest): ?>
 <div class="navbar navbar-default">
   <?php
     echo Html::a('<span class="btn btn-success navbar-btn pull-right tipster" title="add location">'.Icon::show('plus', ['class'=>'fa'], Icon::FA).' add picture link</span>', array("/posts/widgetconfig/addpicturelink", 'id'=>$id,'module'=>$module), array('class' => 'create'));  
   ?>
 </div>
+<?php endif; ?>
 
 <?php
 Pjax::end();
