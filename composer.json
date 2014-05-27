@@ -27,7 +27,7 @@
     "kartik-v/yii2-social":"dev-master",
     "philippfrenzel/yiiwymeditor":"dev-master",
     "frenzelgmbh/appcommon":"dev-master",
-    "frenzelgmbh/cmcategories":"*",
+    "frenzelgmbh/cm-categories":"*",
     "suin/php-rss-writer": ">=1.0",
     "2amigos/yii2-leaflet-markercluster-plugin": "*",
     "2amigos/yii2-leaflet-extension": "*",
