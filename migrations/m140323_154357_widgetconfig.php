@@ -1,27 +1,46 @@
 <?php
 
+/**
+ * The migration script for the sblog
+ * @author Philipp Frenzel <philipp@frenzel.net>
+ * @copyright Frenzel GmbH
+ * @version 1.0
+ */
+
 use yii\db\Schema;
 
 class m140323_154357_widgetconfig extends \yii\db\Migration
 {
     public function up()
     {
-      $this->createTable('tbl_widget',array(
-          'id'                      => 'INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT',
-          'name'                    => 'VARCHAR(200)',          
-          'wgt_table'               => 'INTEGER UNSIGNED DEFAULT NULL',
-          'wgt_id'                  => 'INTEGER UNSIGNED DEFAULT NULL',
-          'param1_str'              => 'VARCHAR(200)',
-          'param2_int'              => 'INTEGER DEFAULT NULL',
-          'param3_date'             => 'DATE DEFAULT NULL',
-          'status'                  => 'VARCHAR(255) NOT NULL DEFAULT "created"',
-          'time_deleted'            => 'INTEGER DEFAULT NULL',
-          'time_create'             => 'INTEGER',
-      ),'CHARACTER SET utf8 COLLATE utf8_bin ENGINE = InnoDB;');
+
+      switch (Yii::$app->db->driverName) {
+        case 'mysql':
+          $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
+          break;
+        case 'pgsql':
+          $tableOptions = null;
+          break;
+        default:
+          throw new RuntimeException('Your database is not supported!');
+      }
+
+      $this->createTable('{{%widget}}',array(
+          'id'                      => Schema::TYPE_PK,
+          'name'                    => Schema::TYPE_STRING .'(200)',          
+          'wgt_table'               => Schema::TYPE_INTEGER.' NULL',
+          'wgt_id'                  => Schema::TYPE_INTEGER.' NULL',
+          'param1_str'              => Schema::TYPE_STRING .'(200)',
+          'param2_int'              => Schema::TYPE_INTEGER.' NULL',
+          'param3_date'             => Schema::TYPE_DATE.' NULL',
+          'status'                  => Schema::TYPE_STRING .'(255) NOT NULL DEFAULT "created"',
+          'time_deleted'            => Schema::TYPE_INTEGER.' NULL',
+          'time_create'             => Schema::TYPE_INTEGER.' NULL',
+      ),$tableOptions);
     }
 
     public function down()
     {
-        $this->dropTable('tbl_widget');
+        $this->dropTable('{{%widget}}');
     }
 }
