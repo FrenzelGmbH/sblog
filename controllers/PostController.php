@@ -104,8 +104,14 @@ class PostController extends AppController
 		);
 		$text = strip_tags($model->content);
 		$sentences = $tok->tokenize($text);
+		if(is_array($sentences))
+		{			
+			$this->metadescription = $model->title . ' ' . substr($sentences[0],0,100);
+		}
+		else{
+			$this->metadescription = $model->title . ' ' . $text;
+		}
 		$this->metakeywords = $model->tags;
-		$this->metadescription = $model->title . ' ' . substr($sentences[0],0,100);
 
 		return $this->render('onlineview', [
 			'model' => $model,
@@ -128,8 +134,14 @@ class PostController extends AppController
 		);
 		$text = strip_tags($model->content);
 		$sentences = $tok->tokenize($text);
+		if(is_array($sentences))
+		{			
+			$this->metadescription = $model->title . ' ' . substr($sentences[0],0,100);
+		}
+		else{
+			$this->metadescription = $model->title . ' ' . $text;
+		}
 		$this->metakeywords = $model->tags;
-		$this->metadescription = $model->title . ' ' . substr($sentences[0],0,100);
 		
 		return $this->render('onlineview', [
 			'model' => $model,
