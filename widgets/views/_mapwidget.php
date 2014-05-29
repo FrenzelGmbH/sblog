@@ -55,7 +55,11 @@ Pjax::begin(['id'=>'WidgetLocationPjax']);
 
 <div class="navbar navbar-default">
   <?php
-    echo Html::a('<span class="btn btn-success navbar-btn pull-right tipster" title="add location">'.Icon::show('plus', ['class'=>'fa'], Icon::FA).' add location</span>', array("/posts/widgetconfig/addlocation", 'id'=>$id,'module'=>$module), array('class' => 'create'));  
+    echo Html::a(
+      '<span class="btn btn-success navbar-btn pull-right tipster" title="add location">'.Icon::show('plus', ['class'=>'fa'], Icon::FA).' add location</span>', 
+      ["/posts/widgetconfig/addlocation", 'id'=>$id,'module'=>$module],
+      ['class' => 'create']
+    );  
   ?>
 </div>
 

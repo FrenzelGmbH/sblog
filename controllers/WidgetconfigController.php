@@ -72,7 +72,7 @@ class WidgetconfigController extends AppController
       $dpLocations = new ActiveDataProvider(array(
         'query' => $query,
       ));
-      echo $this->renderAjax('@frenzelgmbh/sblog/widgets/views/_mapwidget',[
+      return $this->renderAjax('@frenzelgmbh/sblog/widgets/views/_mapwidget',[
         'dpLocations' => $dpLocations,
         'module'      => $model->wgt_table,
         'id'          => $model->wgt_id

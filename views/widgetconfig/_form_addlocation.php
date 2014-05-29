@@ -4,7 +4,7 @@ use \Yii;
 
 use \yii\helpers\Html;
 use \yii\helpers\Url;
-use \yii\widgets\ActiveForm;
+use \kartik\widgets\ActiveForm;
 use \yii\web\JsExpression;
 
 use kartik\widgets\Select2;
