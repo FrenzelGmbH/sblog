@@ -87,7 +87,7 @@ class WidgetConfig extends \yii\db\ActiveRecord
                 'name' => $WIDGET,
                 'wgt_table' => $module,
                 'wgt_id' => $id,
-                'time_deleted' => 'IS NULL'
+                'time_deleted' => null
             ])
             ->all();
     }
