@@ -26,14 +26,27 @@ class m130530_050429_blogtables extends \yii\db\Migration
 	    }
 
 		$this->createTable('{{%post}}',array(
-				'id'          => Schema::TYPE_PK,
-				'title'       => Schema::TYPE_STRING .'(128) NOT NULL',
-				'content'     => Schema::TYPE_STRING.' NULL',
-				'tags'        => Schema::TYPE_STRING,
-				'status'      => Schema::TYPE_STRING .'(255) NOT NULL DEFAULT "created"',
-				'author_id'   => Schema::TYPE_INTEGER.' NULL',
-				'time_create' => Schema::TYPE_INTEGER,
-				'time_update' => Schema::TYPE_INTEGER,
+				'id'          	=> Schema::TYPE_PK,
+				'title'       	=> Schema::TYPE_STRING .'(128) NOT NULL',
+				'content'     	=> Schema::TYPE_STRING.' NULL',
+				'tags'        	=> Schema::TYPE_STRING,
+				'status'      	=> Schema::TYPE_STRING .'(255) NOT NULL DEFAULT "created"',
+				//possible reference to user
+		      	'user_id'           => Schema::TYPE_INTEGER.' NULL',
+		      	//module fields
+		      	'mod_table'         => Schema::TYPE_STRING .'(100)',
+		      	'mod_id'            => Schema::TYPE_INTEGER.' NULL',
+		      	//interface fields
+		      	'system_key'        => Schema::TYPE_STRING .'(100)',
+		      	'system_name'       => Schema::TYPE_STRING .'(100)',
+		      	'system_upate'      => Schema::TYPE_INTEGER.' DEFAULT NULL',
+		      	// timestamps
+		      	'created_at'        => Schema::TYPE_INTEGER . ' NOT NULL',
+		      	'updated_at'        => Schema::TYPE_INTEGER . ' NOT NULL',
+		      	'deleted_at'        => Schema::TYPE_INTEGER . ' DEFAULT NULL',
+		      	//Foreign Keys
+		      	'categories_id'     => Schema::TYPE_INTEGER.' NULL',
+		      	'author_id'     	=> Schema::TYPE_INTEGER.' NULL'
 		),$tableOptions);
 
 		$this->createTable('{{%comment}}',array(
@@ -41,7 +54,13 @@ class m130530_050429_blogtables extends \yii\db\Migration
 				'content'       => Schema::TYPE_STRING.' NULL',
 				'status'        => Schema::TYPE_STRING .'(255) NOT NULL DEFAULT "created"',
 				'author_id'     => Schema::TYPE_INTEGER.' NULL',
-				'time_create'   => Schema::TYPE_INTEGER,
+				
+				// timestamps
+		      	'created_at'        => Schema::TYPE_INTEGER . ' NOT NULL',
+		      	'updated_at'        => Schema::TYPE_INTEGER . ' NOT NULL',
+		      	'deleted_at'        => Schema::TYPE_INTEGER . ' DEFAULT NULL',
+
+		      	//Foreign Keys
 				'comment_table' => Schema::TYPE_INTEGER.' NULL',
 				'comment_id'    => Schema::TYPE_INTEGER.' NULL',
 		),$tableOptions);
