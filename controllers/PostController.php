@@ -22,6 +22,12 @@ use \NlpTools\Tokenizers\WhitespaceTokenizer;
 class PostController extends AppController
 {
 
+	/**
+	 * the layout that will be used, default column2 which will load the admin theme
+	 * @var string
+	 */
+	public $layout = 'column2';
+
 	public function behaviors()
 	{
 		return [
@@ -68,7 +74,6 @@ class PostController extends AppController
 	 */
 	public function actionIndex()
 	{
-		$this->layout = \frenzelgmbh\appcommon\controllers\AppController::adminlayout;
 		$searchModel = new PostSearch;
 		$dataProvider = $searchModel->search($_GET);
 
@@ -169,7 +174,6 @@ class PostController extends AppController
 	 */
 	public function actionCreate()
 	{
-		$this->layout = \frenzelgmbh\appcommon\controllers\AppController::adminlayout;
 		$model = new Post;
 
 		if ($model->load(\Yii::$app->request->post()) && $model->save()) {
@@ -189,7 +193,6 @@ class PostController extends AppController
 	 */
 	public function actionUpdate($id)
 	{
-		$this->layout = \frenzelgmbh\appcommon\controllers\AppController::adminlayout;
 		$model = $this->findModel($id);
 
 		if ($model->load(\Yii::$app->request->post()) && $model->save()) {
