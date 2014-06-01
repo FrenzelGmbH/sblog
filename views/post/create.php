@@ -3,6 +3,7 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\Block;
+use kartik\widgets\SideNav;
 
 /**
  * @var yii\web\View $this
@@ -20,14 +21,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
   <?php 
 
-  $sideMenu = array();
-  $sideMenu[] = array('decoration'=>'sticker sticker-color-yellow','icon'=>'icon-arrow-left','label'=>Yii::t('app','Posts Overview'),'link'=>Url::to(array('/posts/post/index'))); 
+    $sideMenu = array();
+    $sideMenu[] = array('icon'=>'home','label'=>Yii::t('app','Overview'),'url'=>Url::to(array('/posts/post/index')));
+    
+    echo SideNav::widget([
+      'type' => SideNav::TYPE_DEFAULT,
+      'heading' => 'Options',
+      'items' => $sideMenu
+    ]);
 
-  echo frenzelgmbh\sblog\widgets\PortletSidemenu::widget(array(
-    'sideMenu'=>$sideMenu,
-    'enableAdmin'=>false,
-    'htmlOptions'=>array('class'=>'nostyler'),
-  )); ?>
+  ?>
 
 <?php Block::end(); ?>
 
