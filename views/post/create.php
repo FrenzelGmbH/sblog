@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
   <?php 
 
     $sideMenu = array();
-    $sideMenu[] = array('icon'=>'home','label'=>Yii::t('app','Overview'),'url'=>Url::to(array('/posts/post/index')));
+    $sideMenu[] = array('icon'=>'arrow-left','label'=>Yii::t('app','Overview'),'url'=>Url::to(array('/posts/post/index')));
     
     echo SideNav::widget([
       'type' => SideNav::TYPE_PRIMARY,

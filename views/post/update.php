@@ -22,11 +22,10 @@ $this->params['breadcrumbs'][] = 'Update';
   <?php 
 
     $sideMenu = array();
-    $sideMenu[] = array('icon'=>'home','label'=>Yii::t('app','Home'),'url'=>Url::to(array('/site/index')));
-    $sideMenu[] = array('icon'=>'arrow-left','label'=>Yii::t('app','Post Overview'),'url'=>Url::to(array('/posts/post/index')));
+    $sideMenu[] = array('icon'=>'arrow-left','label'=>Yii::t('app','Overview'),'url'=>Url::to(array('/posts/post/index')));
    
     echo SideNav::widget([
-      'type' => SideNav::TYPE_DEFAULT,
+      'type' => SideNav::TYPE_INFO,
       'heading' => 'Options',
       'items' => $sideMenu
     ]);
