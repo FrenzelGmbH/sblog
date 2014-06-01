@@ -1,4 +1,4 @@
-<?php $this->beginContent('@adminui/themes/layouts/main.php'); ?>
+<?php $this->beginContent('@adminUi/themes/layouts/main.php'); ?>
 <div id="content">
 
   <div class="row">
