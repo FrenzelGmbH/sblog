@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
     $sideMenu[] = array('icon'=>'arrow-right','label'=>Yii::t('app','Manage Tags'),'url'=>Url::to(array('/tags/default/index')));
    
     echo SideNav::widget([
-      'type' => SideNav::TYPE_DEFAULT,
+      'type' => SideNav::TYPE_PRIMARY,
       'heading' => 'Options',
       'items' => $sideMenu
     ]);

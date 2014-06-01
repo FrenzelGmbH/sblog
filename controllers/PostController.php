@@ -109,7 +109,7 @@ class PostController extends AppController
 		);
 		$text = strip_tags($model->content);
 		$sentences = $tok->tokenize($text);
-		if(is_array($sentences))
+		if(is_array($sentences) && array_key_exists(0, $sentences))
 		{			
 			$this->metadescription = $model->title . ' ' . substr($sentences[0],0,100);
 		}
@@ -142,7 +142,7 @@ class PostController extends AppController
 		);
 		$text = strip_tags($model->content);
 		$sentences = $tok->tokenize($text);
-		if(is_array($sentences))
+		if(is_array($sentences) && array_key_exists(0, $sentences))
 		{			
 			$this->metadescription = $model->title . ' ' . substr($sentences[0],0,100);
 		}

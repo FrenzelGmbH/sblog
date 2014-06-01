@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
     $sideMenu[] = array('icon'=>'home','label'=>Yii::t('app','Overview'),'url'=>Url::to(array('/posts/post/index')));
     
     echo SideNav::widget([
-      'type' => SideNav::TYPE_DEFAULT,
+      'type' => SideNav::TYPE_PRIMARY,
       'heading' => 'Options',
       'items' => $sideMenu
     ]);
