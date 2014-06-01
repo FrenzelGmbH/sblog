@@ -8,6 +8,11 @@ use frenzelgmbh\appcommon\controllers\AppController;
 
 class DefaultController extends AppController
 {
+  /**
+   * so we use the default admin theme
+   * @var string
+   */
+  public $layout = "column2";
   
   /**
    * controlling the different access rights
@@ -39,7 +44,6 @@ class DefaultController extends AppController
 
 	public function actionIndex()
 	{
-    $this->layout = \frenzelgmbh\appcommon\controllers\AppController::adminlayout;
-		return $this->render('index');
+    return $this->render('index');
 	}
 }
