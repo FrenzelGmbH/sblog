@@ -17,7 +17,7 @@ use app\modules\parties\models\Party;
  * @property string $param3_date
  * @property string $status
  * @property integer $time_deleted
- * @property integer $time_create
+ * @property integer $created_at
  */
 class WidgetConfig extends \yii\db\ActiveRecord
 {
@@ -35,7 +35,7 @@ class WidgetConfig extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['wgt_table', 'wgt_id', 'param2_int', 'time_deleted', 'time_create'], 'integer'],
+            [['wgt_table', 'wgt_id', 'param2_int', 'time_deleted', 'created_at'], 'integer'],
             [['param3_date'], 'safe'],
             [['name', 'param1_str'], 'string', 'max' => 200],
             [['status'], 'string', 'max' => 255]
@@ -57,7 +57,7 @@ class WidgetConfig extends \yii\db\ActiveRecord
             'param3_date' => Yii::t('app', 'Param3 Date'),
             'status' => Yii::t('app', 'Status'),
             'time_deleted' => Yii::t('app', 'Time Deleted'),
-            'time_create' => Yii::t('app', 'Time Create'),
+            'created_at' => Yii::t('app', 'Time Create'),
         ];
     }
 

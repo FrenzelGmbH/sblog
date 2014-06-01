@@ -29,7 +29,7 @@ use yii\widgets\ActiveForm;
 
 		<?php // echo $form->field($model, 'author_id') ?>
 
-		<?php // echo $form->field($model, 'time_create') ?>
+		<?php // echo $form->field($model, 'created_at') ?>
 
 		<?php // echo $form->field($model, 'time_update') ?>
 

@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			'tags:ntext',
 			'status',
 			'author_id',
-			'time_create:datetime',
+			'created_at:datetime',
 			'time_update:datetime',
 		],
 	]); ?>

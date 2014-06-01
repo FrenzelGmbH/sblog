@@ -94,8 +94,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="post-box">
   <div class="post-header">
     <div class="datebox pull-left c_gray">
-      <?= date("M", strtotime($model->time_create)); ?><br>
-      <?= date("d", strtotime($model->time_create)); ?>
+      <?= date("M", strtotime($model->created_at)); ?><br>
+      <?= date("d", strtotime($model->created_at)); ?>
     </div>
     <h1 class="lspace subline blog-header"><a href="<?=\Yii::$app->urlManager->createAbsoluteUrl(['/posts/post/onlineview', 'id' => $model->id, 'title'=>Html::encode(strtoupper($model->title))]); ?>" class="c_black"><?= Html::encode(strtoupper($model->title)); ?></a></h1>
   </div>
