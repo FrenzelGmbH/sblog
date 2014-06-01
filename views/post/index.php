@@ -93,7 +93,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			'tags:ntext', 
 			// 
 			// 'time_update:datetime',
-      'time_create:datetime',      
+      'created_at:datetime',      
 			['class' => 'kartik\grid\ActionColumn'],
 		],
 		'panel' => [
