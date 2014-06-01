@@ -22,8 +22,8 @@ use \DateTime;
  * @property string $tags
  * @property string $status
  * @property integer $author_id
- * @property integer $time_create
- * @property integer $time_update
+ * @property integer $created_at
+ * @property integer $updated_at
  * @property integer $categories_id
  *
  * @property  $author
@@ -52,7 +52,7 @@ class Post extends \yii\db\ActiveRecord
 			array('status', 'in', 'range'=>array(Workflow::STATUS_CREATED,Workflow::STATUS_DRAFT,Workflow::STATUS_PUBLISHED,Workflow::STATUS_ARCHIVED)),
 			array('title', 'string', 'max'=>128),
 			array('categories_id','integer'),
-			['time_create','string'],
+			['created_at','string'],
 			array('tags', 'match', 'pattern'=>'/^[\w\s,]+$/', 'message'=>'Tags can only contain word characters.'),
 			array('tags', 'normalizeTags'),
 			
@@ -67,7 +67,7 @@ class Post extends \yii\db\ActiveRecord
 	public function getComments() {
 		return $this->hasMany('\app\modules\comments\models\Comment', array('comment_id' => 'id')) //
 		            ->where('status = "'. Workflow::STATUS_APPROVED.'" AND comment_table = '.Workflow::MODULE_BLOG)
-					->orderBy('time_create DESC');
+					->orderBy('created_at DESC');
 	}
 
 	/**
@@ -97,8 +97,8 @@ class Post extends \yii\db\ActiveRecord
 			'content'       => Yii::t('app','Content'),
 			'tags'          => Yii::t('app','Tags'),
 			'status'        => Yii::t('app','Status'),
-			'time_create'   => Yii::t('app','Created at'),
-			'time_update'   => Yii::t('app','Updatet at'),
+			'created_at'   => Yii::t('app','Created at'),
+			'updated_at'   => Yii::t('app','Updatet at'),
 			'author_id'     => Yii::t('app','Author'),
 			'categories_id' => Yii::t('app','Category'),
 		);
@@ -159,7 +159,7 @@ class Post extends \yii\db\ActiveRecord
 	{
 		parent::afterFind();
 		$this->_oldTags = $this->tags;		
-		$this->time_create = gmdate("Y-m-d", $this->time_create);
+		$this->created_at = gmdate("Y-m-d", $this->created_at);
 	}
 
 	/**
@@ -172,15 +172,15 @@ class Post extends \yii\db\ActiveRecord
 		{
 			if ($insert) 
 			{
-				$this->time_create=$this->time_update=time();
+				$this->created_at=$this->updated_at=time();
 				$this->author_id=\Yii::$app->user->identity->id;
 			}
 			else
 			{
-				$this->time_update=time();
-				$a = strptime($this->time_create, '%Y-%m-%d');
+				$this->updated_at=time();
+				$a = strptime($this->created_at, '%Y-%m-%d');
 				$timestamp = mktime(0, 0, 0, $a['tm_mon']+1, $a['tm_mday']+1, $a['tm_year']+1900);				
-				$this->time_create = $timestamp;		
+				$this->created_at = $timestamp;		
 			}
 			return true;
 		} 
@@ -217,7 +217,7 @@ class Post extends \yii\db\ActiveRecord
 	public static function getAdapterForPosts($limit=5,$tag='')
 	{
 		return static::find()->where('status="'.Workflow::STATUS_PUBLISHED.'" AND tags LIKE "%'.$tag.'%"')
-					->orderBy('time_create DESC')
+					->orderBy('created_at DESC')
 					->limit($limit);
 	}
 
@@ -229,7 +229,7 @@ class Post extends \yii\db\ActiveRecord
 	public static function getAdapterForPostsCatgory($limit=5,$category='')
 	{
 		return static::find()->where('status="'.Workflow::STATUS_PUBLISHED.'" AND categories_id = "'.$category.'"')
-					->orderBy('time_create DESC')
+					->orderBy('created_at DESC')
 					->limit($limit);
 	}
 
@@ -251,7 +251,7 @@ class Post extends \yii\db\ActiveRecord
 	{
 		return static::find()
 			->where('id > :id', [':id' => $this->id])
-			->orderBy('time_create ASC')->limit(1)->One();
+			->orderBy('created_at ASC')->limit(1)->One();
 	}
 
 	/**
@@ -263,7 +263,7 @@ class Post extends \yii\db\ActiveRecord
 	{
 		return static::find()
 			->where('id < :id', [':id' => $this->id])
-			->orderBy('time_create DESC')->limit(1)->One();
+			->orderBy('created_at DESC')->limit(1)->One();
 	}
 
 }

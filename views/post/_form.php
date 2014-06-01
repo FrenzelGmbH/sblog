@@ -1,6 +1,6 @@
 <?php
 
-use yii\widgets\ActiveForm;
+use kartik\widgets\ActiveForm;
 use yii\helpers\Json;
 use yii\web\JsExpression;
 
@@ -30,7 +30,7 @@ use app\modules\workflow\models\Workflow;
 
     <div class="row">
       <div class="col-md-6">
-        <?= $form->field($model, 'time_create')->widget(DatePicker::classname(), [
+        <?= $form->field($model, 'created_at')->widget(DatePicker::classname(), [
             'options' => ['placeholder' => \Yii::t('app','Publish Date')],
             'pluginOptions' => [
               'autoclose' => true,

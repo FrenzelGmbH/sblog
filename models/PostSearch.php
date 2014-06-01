@@ -17,15 +17,15 @@ class PostSearch extends Model
 	public $tags;
 	public $status;
 	public $author_id;
-  public $categories_id;
-	public $time_create;
-	public $time_update;
+  	public $categories_id;
+	public $created_at;
+	public $updated_at;
 	public $searchstring;
 
 	public function rules()
 	{
 		return array(
-			array(['id', 'author_id', 'time_create', 'time_update'], 'integer'),
+			array(['id', 'author_id', 'created_at', 'updated_at'], 'integer'),
 			array(['title', 'content', 'tags', 'status','searchstring','categories_id'], 'safe'),
 		);
 	}
@@ -44,8 +44,8 @@ class PostSearch extends Model
 			'author_id' => 'Author',
       'categories_id' => 'Category',
 			'searchstring' => 'search',
-			'time_create' => 'Time Create',
-			'time_update' => 'Time Update',
+			'created_at' => 'Time Create',
+			'updated_at' => 'Time Update',
 		);
 	}
 
@@ -67,8 +67,8 @@ class PostSearch extends Model
 		$this->addCondition($query, 'status', true);
 		$this->addCondition($query, 'author_id');
     $this->addCondition($query, 'categories_id');
-		$this->addCondition($query, 'time_create');
-		$this->addCondition($query, 'time_update');
+		$this->addCondition($query, 'created_at');
+		$this->addCondition($query, 'updated_at');
 		return $dataProvider;
 	}
 

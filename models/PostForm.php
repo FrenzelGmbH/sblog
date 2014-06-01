@@ -17,13 +17,13 @@ class PostForm extends Model
 	public $tags;
 	public $status;
 	public $author_id;
-	public $time_create;
-	public $time_update;
+	public $created_at;
+	public $updated_at;
 
 	public function rules()
 	{
 		return [
-			[['id', 'author_id', 'time_create', 'time_update'], 'integer'],
+			[['id', 'author_id', 'created_at', 'updated_at'], 'integer'],
 			[['title', 'content', 'tags', 'status'], 'safe'],
 		];
 	}
@@ -40,8 +40,8 @@ class PostForm extends Model
 			'tags' => 'Tags',
 			'status' => 'Status',
 			'author_id' => 'Author ID',
-			'time_create' => 'Time Create',
-			'time_update' => 'Time Update',
+			'created_at' => 'Time Create',
+			'updated_at' => 'Time Update',
 		];
 	}
 
@@ -62,8 +62,8 @@ class PostForm extends Model
 		$this->addCondition($query, 'tags', true);
 		$this->addCondition($query, 'status', true);
 		$this->addCondition($query, 'author_id');
-		$this->addCondition($query, 'time_create');
-		$this->addCondition($query, 'time_update');
+		$this->addCondition($query, 'created_at');
+		$this->addCondition($query, 'updated_at');
 		return $dataProvider;
 	}
 
