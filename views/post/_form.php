@@ -171,7 +171,7 @@ SCRIPT;
     ));?>    
 
     <div class="form-group navbar navbar-default">
-      <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', array('class' => 'btn btn-primary navbar-btn tipster','title'=>'update this record')); ?>
+      <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', array('class' => 'btn btn-info navbar-btn tipster','title'=>'update this record')); ?>
     </div>
 
   <?php ActiveForm::end(); ?>
