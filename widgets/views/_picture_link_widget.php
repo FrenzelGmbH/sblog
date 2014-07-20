@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ListView;
 use kartik\icons\Icon;
+use yii\widgets\Pjax;
 
 $deleteJS = <<<DEL
 $('.picture-link-box').on('click','.op a.delete',function() {
@@ -27,6 +28,7 @@ $this->registerJs($deleteJS);
 ?>
 
 <?php
+Pjax::begin();
 
   echo ListView::widget(array(
     'id' => 'PictureLinkTable',
@@ -48,3 +50,4 @@ $this->registerJs($deleteJS);
 </div>
 <?php endif; ?>
 
+<?php Pjax::end(); ?>
