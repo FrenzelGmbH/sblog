@@ -9,9 +9,19 @@ use yii\base\Module as BaseModule;
  *
  * @author Philipp frenzel <philipp@frenzel.net>
  */
-class Module extends BaseModule {
+class Module extends BaseModule 
+{
 
     const VERSION = '0.1.0-dev';
+
+    /**
+     * controllerNamespace
+     * 
+     * (default value: 'frenzelgmbh\sblog\controllers')
+     * @var string
+     * @access public
+     */
+    public $controllerNamespace = 'frenzelgmbh\sblog\controllers';
 
     /**
      * @var string|null View path. Leave as null to use default "@user/views"
@@ -19,9 +29,20 @@ class Module extends BaseModule {
     public $viewPath;
 
     /**
-     * @var string|null main layout that should be used by default we set it to /main
+     * @var string|null main layout that should be used by default we set it to null
      */
-    public $mainLayout = '/main';
+    public $layout = 'main';
+
+    /**
+     * [$layoutPath description]
+     * @var string
+     */
+    public $layoutPath = '@app/views/layouts';
+
+    /**
+     * @var array
+     */
+    public static $blogMenu = [];
 
     /**
      * @inheritdoc

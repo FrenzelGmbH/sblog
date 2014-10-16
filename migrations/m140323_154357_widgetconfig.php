@@ -35,7 +35,7 @@ class m140323_154357_widgetconfig extends \yii\db\Migration
           'param3_date'             => Schema::TYPE_DATE.' NULL',
           'status'                  => Schema::TYPE_STRING .'(255) NOT NULL DEFAULT "created"',
           'time_deleted'            => Schema::TYPE_INTEGER.' NULL',
-          'created_at'             => Schema::TYPE_INTEGER.' NULL',
+          'created_at'              => Schema::TYPE_INTEGER.' NULL',
       ),$tableOptions);
     }
 
