@@ -5,7 +5,6 @@ namespace frenzelgmbh\sblog\models;
 use Yii;
 
 use app\models\User;
-use app\modules\workflow\models\Workflow;
 use app\modules\comments\models\Comment;
 use app\modules\tags\models\Tag;
 
