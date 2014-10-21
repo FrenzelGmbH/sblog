@@ -30,6 +30,52 @@ use \DateTime;
  */
 class Post extends \yii\db\ActiveRecord
 {
+
+	//all appication stati
+    const STATUS_CREATED   = 'created';
+    const STATUS_REJECTED  = 'rejected';
+    const STATUS_REQUESTED = 'requested';
+    const STATUS_CORRECTED = 'corrected';
+    const STATUS_APPROVED  = 'approved';
+    const STATUS_PENDING   = 'pending';
+    const STATUS_BOOKED    = 'booked';
+    const STATUS_PURCHASED  = 'purchased';
+    
+    const STATUS_DRAFT     = 'draft';
+    const STATUS_PUBLISHED = 'published';
+    const STATUS_ARCHIVED  = 'archived';
+    
+    public static $statusse = array(
+        self::STATUS_CREATED   =>'created',
+        self::STATUS_REQUESTED =>'requested',
+        self::STATUS_REJECTED  =>'rejected',
+        self::STATUS_CORRECTED =>'corrected',
+        self::STATUS_APPROVED  =>'approved',
+        self::STATUS_PENDING   =>'pending',
+        self::STATUS_BOOKED    =>'booked',
+        self::STATUS_DRAFT     => 'draft',
+        self::STATUS_PUBLISHED => 'published',
+        self::STATUS_ARCHIVED  => 'archived',
+        self::STATUS_PURCHASED => 'purchased',
+    );
+
+    public static function getStatusOptions()
+    {
+        return self::$statusse;
+    }
+
+    /**
+     * Returns a string representation of the model's categories
+     *
+     * @return string The category of this model as a string
+     */
+    public function getStatusAsString($status)
+    {
+        $options = self::getStatusOptions();
+        return isset($options[$status]) ? $options[$status] : '';
+    }
+
+
 	/**
 	 * @inheritdoc
 	 */
@@ -49,7 +95,7 @@ class Post extends \yii\db\ActiveRecord
 		// will receive user inputs.
 		return array(
 			array(['title', 'content', 'status'], 'required'),
-			array('status', 'in', 'range'=>array(Workflow::STATUS_CREATED,Workflow::STATUS_DRAFT,Workflow::STATUS_PUBLISHED,Workflow::STATUS_ARCHIVED)),
+			array('status', 'in', 'range'=>array(self::STATUS_CREATED,self::STATUS_DRAFT,self::STATUS_PUBLISHED,self::STATUS_ARCHIVED)),
 			array('title', 'string', 'max'=>128),
 			array('categories_id','integer'),
 			['created_at','string'],
@@ -66,7 +112,7 @@ class Post extends \yii\db\ActiveRecord
 	 */
 	public function getComments() {
 		return $this->hasMany('\app\modules\comments\models\Comment', array('comment_id' => 'id')) //
-		            ->where('status = "'. Workflow::STATUS_APPROVED.'" AND comment_table = '.Workflow::MODULE_BLOG)
+		            ->where('status = "'. self::STATUS_APPROVED.'" AND comment_table = '.self::MODULE_BLOG)
 					->orderBy('created_at DESC');
 	}
 
@@ -144,10 +190,10 @@ class Post extends \yii\db\ActiveRecord
 	public function addComment($comment)
 	{
 		if(Yii::$app->params['commentNeedApproval'])
-			$comment->status=Workflow::STATUS_DRAFT;
+			$comment->status=self::STATUS_DRAFT;
 		else
-			$comment->status=Workflow::STATUS_APPROVED;
-		$comment->comment_table=Workflow::MODULE_BLOG;
+			$comment->status=self::STATUS_APPROVED;
+		$comment->comment_table=self::MODULE_BLOG;
 		$comment->comment_id=$this->id;
 		return $comment->save();
 	}
@@ -202,7 +248,7 @@ class Post extends \yii\db\ActiveRecord
 	public function afterDelete()
 	{
 		if (parent::beforeDelete()) {
-			Comment::deleteAll('comment_id='.$this->id.' AND comment_table="'.Workflow::MODULE_BLOG.'"');
+			Comment::deleteAll('comment_id='.$this->id.' AND comment_table="'.self::MODULE_BLOG.'"');
 			Tag::updateFrequency($this->tags, '');
 		} else {
 			return false;
@@ -216,7 +262,7 @@ class Post extends \yii\db\ActiveRecord
 	 */
 	public static function getAdapterForPosts($limit=5,$tag='')
 	{
-		return static::find()->where('status="'.Workflow::STATUS_PUBLISHED.'" AND tags LIKE "%'.$tag.'%"')
+		return static::find()->where('status="'.self::STATUS_PUBLISHED.'" AND tags LIKE "%'.$tag.'%"')
 					->orderBy('created_at DESC')
 					->limit($limit);
 	}
@@ -228,7 +274,7 @@ class Post extends \yii\db\ActiveRecord
 	 */
 	public static function getAdapterForPostsCatgory($limit=5,$category='')
 	{
-		return static::find()->where('status="'.Workflow::STATUS_PUBLISHED.'" AND categories_id = "'.$category.'"')
+		return static::find()->where('status="'.self::STATUS_PUBLISHED.'" AND categories_id = "'.$category.'"')
 					->orderBy('created_at DESC')
 					->limit($limit);
 	}
