@@ -4,9 +4,9 @@ namespace frenzelgmbh\sblog\controllers;
 
 use Yii;
 use yii\filters\VerbFilter;
-use frenzelgmbh\appcommon\controllers\AppController;
+use yii\web\Controller;
 
-class DefaultController extends AppController
+class DefaultController extends Controller
 {
   /**
    * so we use the default admin theme
@@ -29,6 +29,9 @@ class DefaultController extends AppController
       ],
       'AccessControl' => [
         'class' => '\yii\filters\AccessControl',
+        'ruleConfig' => [
+            'class' => \app\components\AccessRule::className(),
+        ],
         'rules' => [
           [
             'allow'=>true,

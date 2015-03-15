@@ -6,7 +6,7 @@ use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
 use frenzelgmbh\sblog\models\Post;
 
-class PortletPosts extends \frenzelgmbh\appcommon\widgets\AdminPortlet
+class PortletPosts extends \yii\base\Widget
 {
 	public $title='Blog';
 	
@@ -26,13 +26,15 @@ class PortletPosts extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 
 	public function init() {
 		parent::init();
-		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
+		
 		if(isset($_GET['tag'])){
 			$this->title = "Posts <small>Tagged with <i>".Html::encode($_GET['tag'])."</i></small>";
 		}
+
+		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);		
 	}
 
-	protected function renderContent()
+	protected function run()
 	{
 		if(isset($_GET['tag'])){
 			$query = Post::getAdapterForPosts($this->limit,$_GET['tag']);
@@ -47,19 +49,6 @@ class PortletPosts extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 		      ),
 	  	));
 		//here we don't return the view, here we just echo it!
-		echo $this->render('@frenzelgmbh/sblog/widgets/views/_posts',array('dpPosts'=>$dpPosts));
-	}
-
-	/**
-	 * Renders the decoration for the portlet.
-	 * The default implementation will render the title if it is set.
-	 */
-	protected function renderDecoration()
-	{
-		if($this->title!==null)
-		{
-			$this->title = Yii::t('app',$this->title);
-			echo "<h2 class=\"{$this->titleCssClass}\"><i class='icon-info'></i> {$this->title}</h2>\n";
-		}
-	}
+		return $this->render('@frenzelgmbh/sblog/widgets/views/_posts',array('dpPosts'=>$dpPosts));
+	}	
 }

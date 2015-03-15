@@ -5,9 +5,8 @@ use Yii;
 use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
 use frenzelgmbh\sblog\models\WidgetConfig;
-use frenzelgmbh\appcommon\widgets\Portlet;
 
-class WidgetPictureLink extends Portlet
+class WidgetPictureLink extends \yii\base\Widget
 {
 	/**
 	 * const WIDGET_NAME must be defined for all widgets!
@@ -43,7 +42,7 @@ class WidgetPictureLink extends Portlet
 		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 	}
 
-	protected function renderContent()
+	protected function run()
 	{
 		$query = WidgetConfig::findRelatedRecords(self::WIDGET_NAME, $this->module, $this->id);
 
@@ -51,7 +50,7 @@ class WidgetPictureLink extends Portlet
 		  'query' => $query,
 	  ));
 		//here we don't return the view, here we just echo it!
-		echo $this->render('@frenzelgmbh/sblog/widgets/views/_picture_link_widget',['dpPictures'=>$dpPictures,'module'=>$this->module,'id'=>$this->id]);
+		return $this->render('@frenzelgmbh/sblog/widgets/views/_picture_link_widget',['dpPictures'=>$dpPictures,'module'=>$this->module,'id'=>$this->id]);
 	}
 
 }

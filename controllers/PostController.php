@@ -3,7 +3,7 @@
 namespace frenzelgmbh\sblog\controllers;
 
 use Yii;
-use frenzelgmbh\appcommon\controllers\AppController;
+use yii\web\Controller;
 
 use frenzelgmbh\sblog\models\Post;
 use frenzelgmbh\sblog\models\PostForm;
@@ -19,7 +19,7 @@ use \NlpTools\Tokenizers\WhitespaceTokenizer;
 /**
  * PostController implements the CRUD actions for Post model.
  */
-class PostController extends AppController
+class PostController extends Controller
 {
 
 	/**
@@ -38,33 +38,36 @@ class PostController extends AppController
 				],
 			],
 			'AccessControl' => [
-        'class' => '\yii\filters\AccessControl',
-        'rules' => [
-          [
-            'allow'=>true,
-            'actions'=>array(
-              'index',
-              'view',
-              'create',
-              'update',
-              'delete',
-              'disqus',
-              'onlineview',
-              'tag'
-            ),
-            'roles'=>array('@'),
-          ],
-          [
-            'allow'=>true,
-            'actions'=>array(
-              'onlineview',
-              'disqus',
-              'tag'
-            ),
-            'roles'=>array('?'),
-          ]
-        ]
-      ]
+        		'class' => '\yii\filters\AccessControl',
+		        'ruleConfig' => [
+		            'class' => \app\components\AccessRule::className(),
+		        ],
+		        'rules' => [
+		          [
+		            'allow'=>true,
+		            'actions'=>array(
+		              'index',
+		              'view',
+		              'create',
+		              'update',
+		              'delete',
+		              'disqus',
+		              'onlineview',
+		              'tag'
+		            ),
+		            'roles'=>array('@'),
+		          ],
+		          [
+		            'allow'=>true,
+		            'actions'=>array(
+		              'onlineview',
+		              'disqus',
+		              'tag'
+		            ),
+		            'roles'=>array('?'),
+		          ]
+		        ]
+      		]
 		];
 	}
 

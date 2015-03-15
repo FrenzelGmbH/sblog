@@ -4,20 +4,20 @@ namespace frenzelgmbh\sblog\controllers;
 
 use Yii;
 use yii\filters\VerbFilter;
-use frenzelgmbh\appcommon\controllers\AppController;
+use yii\web\Controller;
 use frenzelgmbh\sblog\models\WidgetConfig;
 use yii\data\ActiveDataProvider;
 
 use \DateTime;
 
-class WidgetconfigController extends AppController
+class WidgetconfigController extends Controller
 {
   /**
    * the layout that will be used, default column2 which will load the admin theme
    * @var string
    */
   public $layout = 'column2';
-  
+
   /**
    * controlling the different access rights
    * @return [type] [description]
@@ -33,6 +33,9 @@ class WidgetconfigController extends AppController
       ],
       'AccessControl' => [
         'class' => '\yii\filters\AccessControl',
+        'ruleConfig' => [
+            'class' => \app\components\AccessRule::className(),
+        ],
         'rules' => [
           [
             'allow'=>true,

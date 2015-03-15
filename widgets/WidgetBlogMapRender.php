@@ -5,9 +5,8 @@ use Yii;
 use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
 use frenzelgmbh\sblog\models\WidgetConfig;
-use frenzelgmbh\appcommon\widgets\Portlet;
 
-class WidgetBlogMapRender extends Portlet
+class WidgetBlogMapRender extends \yii\base\Widget
 {
 	/**
 	 * const WIDGET_NAME must be defined for all widgets!
@@ -22,18 +21,18 @@ class WidgetBlogMapRender extends Portlet
 		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 	}
 
-	protected function renderContent()
+	protected function run()
 	{
 		$dpLocations = WidgetConfig::findRelatedModels(self::WIDGET_NAME, $this->module, $this->id);
 
 	  if(!is_null($dpLocations))
 	  {
 			//here we don't return the view, here we just echo it!
-			echo $this->render('@frenzelgmbh/sblog/widgets/views/_mapwidget_renderer',['dpLocations'=>$dpLocations]);
+			return $this->render('@frenzelgmbh/sblog/widgets/views/_mapwidget_renderer',['dpLocations'=>$dpLocations]);
 		}
 		else
 		{
-			echo "";
+			return "";
 		}
 	}
 

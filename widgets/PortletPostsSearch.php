@@ -7,7 +7,7 @@ use yii\helpers\Html;
 use frenzelgmbh\sblog\models\Post;
 use frenzelgmbh\sblog\models\PostSearch;
 
-class PortletPostsSearch extends \frenzelgmbh\appcommon\widgets\AdminPortlet
+class PortletPostsSearch extends \yii\base\Widget
 {
 	public $title='Post Search';
 
@@ -23,7 +23,7 @@ class PortletPostsSearch extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 	}
 
-	protected function renderContent()
+	protected function run()
 	{
 		$hits = NULL;
 		$model = new PostSearch;

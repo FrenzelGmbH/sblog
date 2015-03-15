@@ -5,9 +5,8 @@ use Yii;
 use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
 use frenzelgmbh\sblog\models\WidgetConfig;
-use frenzelgmbh\appcommon\widgets\Portlet;
 
-class PortletPagination extends Portlet
+class PortletPagination extends \yii\base\Widget
 {
 	/**
 	 * [$post description]
@@ -20,10 +19,10 @@ class PortletPagination extends Portlet
 		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 	}
 
-	protected function renderContent()
+	protected function run()
 	{
 		//here we don't return the view, here we just echo it!
-		echo $this->render('@frenzelgmbh/sblog/widgets/views/_post_pagination',['model'=>$this->model]);
+		return $this->render('@frenzelgmbh/sblog/widgets/views/_post_pagination',['model'=>$this->model]);
 	}
 
 }

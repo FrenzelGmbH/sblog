@@ -6,7 +6,7 @@ use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
 use frenzelgmbh\sblog\models\Post;
 
-class PortletPostsStyled extends \frenzelgmbh\appcommon\widgets\Portlet
+class PortletPostsStyled extends \yii\base\Widget
 {
 	public $title='Blog';
 	
@@ -32,7 +32,7 @@ class PortletPostsStyled extends \frenzelgmbh\appcommon\widgets\Portlet
 		}
 	}
 
-	protected function renderContent()
+	protected function run()
 	{
 		if(isset($_GET['tag'])){
 			$query = Post::getAdapterForPosts($this->limit*5,$_GET['tag']);
@@ -51,19 +51,6 @@ class PortletPostsStyled extends \frenzelgmbh\appcommon\widgets\Portlet
 		      ),
 	  	));
 		//here we don't return the view, here we just echo it!
-		echo $this->render('@frenzelgmbh/sblog/widgets/views/_posts_styled',array('dpPosts'=>$dpPosts));
-	}
-
-	/**
-	 * Renders the decoration for the portlet.
-	 * The default implementation will render the title if it is set.
-	 */
-	protected function renderDecoration()
-	{
-		if($this->title!==null)
-		{
-			$this->title = Yii::t('app',$this->title);
-			echo "<p>{$this->title}</p>\n";
-		}
+		return $this->render('@frenzelgmbh/sblog/widgets/views/_posts_styled',array('dpPosts'=>$dpPosts));
 	}
 }

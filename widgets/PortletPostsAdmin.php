@@ -8,7 +8,7 @@ use yii\helpers\Url;
 use yii\data\ActiveDataProvider;
 use frenzelgmbh\sblog\models\Post;
 
-class PortletPostsAdmin extends \frenzelgmbh\appcommon\widgets\AdminPortlet
+class PortletPostsAdmin extends \yii\base\Widget
 {
 	public $title='Blog Admin';
 
@@ -35,7 +35,7 @@ class PortletPostsAdmin extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 	}
 
-	protected function renderContent()
+	protected function run()
 	{
 		if($this->menuItems==null){
 			$this->menuItems = array();
@@ -44,19 +44,6 @@ class PortletPostsAdmin extends \frenzelgmbh\appcommon\widgets\AdminPortlet
 		}
 
 		//here we don't return the view, here we just echo it!
-		echo $this->render('@frenzelgmbh/sblog/widgets/views/_admin',array('menuItems'=>$this->menuItems));
-	}
-
-	/**
-	 * Renders the decoration for the portlet.
-	 * The default implementation will render the title if it is set.
-	 */
-	protected function renderDecoration()
-	{
-		if($this->title!==null)
-		{
-			$this->title = Yii::t('app',$this->title);
-			echo "<div class='panel-heading'><h3 class=\"{$this->titleCssClass}\"><i class='icon-info'></i> {$this->title}</h3>\n</div>\n";
-		}
+		return $this->render('@frenzelgmbh/sblog/widgets/views/_admin',array('menuItems'=>$this->menuItems));
 	}
 }

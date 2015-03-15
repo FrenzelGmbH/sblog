@@ -5,9 +5,8 @@ use Yii;
 use yii\helpers\Html;
 use yii\data\ActiveDataProvider;
 use frenzelgmbh\sblog\models\WidgetConfig;
-use frenzelgmbh\appcommon\widgets\AdminPortlet;
 
-class WidgetBlogMap extends AdminPortlet
+class WidgetBlogMap extends \yii\base\Widget
 {
 	/**
 	 * const WIDGET_NAME must be defined for all widgets!
@@ -41,7 +40,7 @@ class WidgetBlogMap extends AdminPortlet
 	 * Renders the widget
 	 * @return [type] [description]
 	 */
-	protected function renderContent()
+	protected function run()
 	{
 		$query = WidgetConfig::findRelatedRecords(self::WIDGET_NAME, $this->module, $this->id);
 
@@ -49,7 +48,7 @@ class WidgetBlogMap extends AdminPortlet
 		  'query' => $query,
 	  ));
 		//here we don't return the view, here we just echo it!
-		echo $this->render('@frenzelgmbh/sblog/widgets/views/_mapwidget',['dpLocations'=>$dpLocations,'module'=>$this->module,'id'=>$this->id]);
+		return $this->render('@frenzelgmbh/sblog/widgets/views/_mapwidget',['dpLocations'=>$dpLocations,'module'=>$this->module,'id'=>$this->id]);
 	}
 
 }
