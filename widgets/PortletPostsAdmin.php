@@ -35,7 +35,7 @@ class PortletPostsAdmin extends \yii\base\Widget
 		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 	}
 
-	protected function run()
+	public function run()
 	{
 		if($this->menuItems==null){
 			$this->menuItems = array();

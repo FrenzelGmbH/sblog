@@ -29,9 +29,8 @@ class PortletSidemenu extends \yii\base\Widget
 		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 	}
 
-	protected function run()
+	publiv function run()
 	{
-		//here we don't return the view, here we just echo it!
 		return $this->render('@frenzelgmbh/sblog/widgets/views/_sidemenu',array('sideMenu'=>$this->sideMenu));
 	}
 }

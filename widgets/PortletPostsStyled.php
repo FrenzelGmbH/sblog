@@ -32,7 +32,7 @@ class PortletPostsStyled extends \yii\base\Widget
 		}
 	}
 
-	protected function run()
+	public function run()
 	{
 		if(isset($_GET['tag'])){
 			$query = Post::getAdapterForPosts($this->limit*5,$_GET['tag']);

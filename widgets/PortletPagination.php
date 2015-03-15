@@ -19,7 +19,7 @@ class PortletPagination extends \yii\base\Widget
 		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 	}
 
-	protected function run()
+	public function run()
 	{
 		//here we don't return the view, here we just echo it!
 		return $this->render('@frenzelgmbh/sblog/widgets/views/_post_pagination',['model'=>$this->model]);

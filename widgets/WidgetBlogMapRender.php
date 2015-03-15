@@ -21,13 +21,12 @@ class WidgetBlogMapRender extends \yii\base\Widget
 		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 	}
 
-	protected function run()
+	public function run()
 	{
 		$dpLocations = WidgetConfig::findRelatedModels(self::WIDGET_NAME, $this->module, $this->id);
 
-	  if(!is_null($dpLocations))
-	  {
-			//here we don't return the view, here we just echo it!
+	  	if(!is_null($dpLocations))
+	  	{
 			return $this->render('@frenzelgmbh/sblog/widgets/views/_mapwidget_renderer',['dpLocations'=>$dpLocations]);
 		}
 		else

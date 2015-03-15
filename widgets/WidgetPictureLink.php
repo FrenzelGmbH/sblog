@@ -42,14 +42,14 @@ class WidgetPictureLink extends \yii\base\Widget
 		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 	}
 
-	protected function run()
+	public function run()
 	{
 		$query = WidgetConfig::findRelatedRecords(self::WIDGET_NAME, $this->module, $this->id);
 
 		$dpPictures = new ActiveDataProvider(array(
-		  'query' => $query,
-	  ));
-		//here we don't return the view, here we just echo it!
+		  	'query' => $query,
+	  	));
+		
 		return $this->render('@frenzelgmbh/sblog/widgets/views/_picture_link_widget',['dpPictures'=>$dpPictures,'module'=>$this->module,'id'=>$this->id]);
 	}
 

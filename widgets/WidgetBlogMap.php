@@ -40,14 +40,14 @@ class WidgetBlogMap extends \yii\base\Widget
 	 * Renders the widget
 	 * @return [type] [description]
 	 */
-	protected function run()
+	public function run()
 	{
 		$query = WidgetConfig::findRelatedRecords(self::WIDGET_NAME, $this->module, $this->id);
 
 		$dpLocations = new ActiveDataProvider(array(
-		  'query' => $query,
-	  ));
-		//here we don't return the view, here we just echo it!
+			 'query' => $query,
+	  	));
+		
 		return $this->render('@frenzelgmbh/sblog/widgets/views/_mapwidget',['dpLocations'=>$dpLocations,'module'=>$this->module,'id'=>$this->id]);
 	}
 

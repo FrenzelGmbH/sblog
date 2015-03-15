@@ -23,7 +23,7 @@ class PortletPostsSearch extends \yii\base\Widget
 		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);
 	}
 
-	protected function run()
+	public function run()
 	{
 		$hits = NULL;
 		$model = new PostSearch;

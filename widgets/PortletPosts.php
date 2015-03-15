@@ -34,7 +34,7 @@ class PortletPosts extends \yii\base\Widget
 		\frenzelgmbh\sblog\sblogAsset::register(\Yii::$app->view);		
 	}
 
-	protected function run()
+	public function run()
 	{
 		if(isset($_GET['tag'])){
 			$query = Post::getAdapterForPosts($this->limit,$_GET['tag']);
