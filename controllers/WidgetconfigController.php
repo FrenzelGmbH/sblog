@@ -12,6 +12,11 @@ use \DateTime;
 
 class WidgetconfigController extends AppController
 {
+  /**
+   * the layout that will be used, default column2 which will load the admin theme
+   * @var string
+   */
+  public $layout = 'column2';
   
   /**
    * controlling the different access rights

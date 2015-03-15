@@ -49,36 +49,17 @@ class m130530_050429_blogtables extends \yii\db\Migration
 		      	'author_id'     	=> Schema::TYPE_INTEGER.' NULL'
 		),$tableOptions);
 
-		$this->createTable('{{%comment}}',array(
-				'id'            => Schema::TYPE_PK,
-				'content'       => Schema::TYPE_STRING.' NULL',
-				'status'        => Schema::TYPE_STRING .'(255) NOT NULL DEFAULT "created"',
-				'author_id'     => Schema::TYPE_INTEGER.' NULL',
-				
-				// timestamps
-		      	'created_at'        => Schema::TYPE_INTEGER . ' NOT NULL',
-		      	'updated_at'        => Schema::TYPE_INTEGER . ' NOT NULL',
-		      	'deleted_at'        => Schema::TYPE_INTEGER . ' DEFAULT NULL',
-
-		      	//Foreign Keys
-				'comment_table' => Schema::TYPE_INTEGER.' NULL',
-				'comment_id'    => Schema::TYPE_INTEGER.' NULL',
-		),$tableOptions);
-
 		/**
 		* Add all needed fields to user in one_site belongs to many users
 		**/
 		$this->addForeignKey('FK_post_author','{{%post}}','author_id','{{%user}}','id');
-		$this->addForeignKey('FK_comment_author','{{%comment}}','author_id','{{%user}}','id');
 	}
 
 	public function down()
 	{
 		//drop FK's first
 		$this->dropForeignKey('FK_post_author','{{%post}}');
-		$this->dropForeignKey('FK_comment_author','{{%comment}}');
 
 		$this->dropTable('{{%post}}');
-		$this->dropTable('{{%comment}}');
 	}
 }

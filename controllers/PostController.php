@@ -130,9 +130,6 @@ class PostController extends AppController
 	 */
 	public function actionOnlineview($id)
 	{
-		//switch layout to absolute one, as its wrong here
-		$this->layout = "/main_blog";
-		
 		//get the model, to use it within the meta tags
 		$model = $this->findModel($id);
 		//setting the meta keywords for this page
