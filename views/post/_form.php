@@ -91,7 +91,7 @@ function (element, callback) {
 }
 SCRIPT;
 
-$tagurl = Url::to(['/tags/default/jsonlist']);
+$tagurl = Url::to(['/posts/default/tag-list']);
 
 ?>
 

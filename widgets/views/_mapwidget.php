@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ListView;
-use kartik\icons\Icon;
 use yii\widgets\Pjax;
 
 $script = <<<SKRIPT
@@ -43,12 +42,12 @@ $this->registerJs($deleteJS);
 Pjax::begin(['id'=>'WidgetLocationPjax']);
 
   echo ListView::widget(array(
-		'id' => 'LocationsTable',
-		'dataProvider'=>$dpLocations,
-		'itemView' => '@frenzelgmbh/sblog/widgets/views/iviews/_location_view',
-		'layout' => '{items}',
-		)
-	);
+    'id' => 'LocationsTable',
+    'dataProvider'=>$dpLocations,
+    'itemView' => '@frenzelgmbh/sblog/widgets/views/iviews/_location_view',
+    'layout' => '{items}',
+    )
+  );
   echo "<p>&nbsp;</p>";
 
 ?>
@@ -56,7 +55,7 @@ Pjax::begin(['id'=>'WidgetLocationPjax']);
 <div class="navbar navbar-default">
   <?php
     echo Html::a(
-      '<span class="btn btn-success navbar-btn pull-right tipster" title="add location">'.Icon::show('plus', ['class'=>'fa'], Icon::FA).' add location</span>', 
+      '<span class="btn btn-success navbar-btn pull-right tipster" title="add location"> <i class="fa fa-plus"></i> add location</span>', 
       ["/posts/widgetconfig/addlocation", 'id'=>$id,'module'=>$module],
       ['class' => 'create']
     );  

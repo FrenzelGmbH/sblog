@@ -114,12 +114,31 @@ class PostController extends Controller
 		$sentences = $tok->tokenize($text);
 		if(is_array($sentences) && array_key_exists(0, $sentences))
 		{			
-			$this->metadescription = $model->title . ' ' . substr($sentences[0],0,100);
+			$this->view->registerMetaTag(
+	            [
+	                'name'    => 'metadescription',
+	                'content' => $model->title . ' ' . substr($sentences[0],0,100)
+	            ],
+	            'keywords'
+	        );
 		}
 		else{
-			$this->metadescription = $model->title . ' ' . $text;
+			$this->view->registerMetaTag(
+	            [
+	                'name'    => 'metadescription',
+	                'content' => $model->title . ' ' . $text
+	            ],
+	            'keywords'
+	        );
 		}
-		$this->metakeywords = $model->tags;
+
+		$this->view->registerMetaTag(
+            [
+                'name'    => 'metakeywords',
+                'content' => $model->tags
+            ],
+            'keywords'
+        );
 
 		return $this->render('onlineview', [
 			'model' => $model,

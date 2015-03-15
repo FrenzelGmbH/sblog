@@ -3,7 +3,6 @@
 namespace frenzelgmbh\sblog\models;
 
 use Yii;
-use app\modules\parties\models\Party;
 
 /**
  * This is the model class for table "tbl_widget".
@@ -26,7 +25,7 @@ class WidgetConfig extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'tbl_widget';
+        return '{{%widget}}';
     }
 
     /**
@@ -91,13 +90,4 @@ class WidgetConfig extends \yii\db\ActiveRecord
             ])
             ->all();
     }
-
-    /**
-    * @return \yii\db\ActiveRelation
-    */
-    public function getParty()
-    {
-        return $this->hasOne(Party::className(), ['id' => 'param2_int']);
-    } 
-
 }

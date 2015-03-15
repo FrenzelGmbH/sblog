@@ -13,8 +13,7 @@ $content = $arr[0];
   
   <div class="post-header">
     <div class="datebox pull-left c_gray">
-      <?= date("M", strtotime($model->created_at)); ?><br>
-      <?= date("d", strtotime($model->created_at)); ?>
+      <?= $model->created_at; ?>
     </div>
     <h2 class="lspace subline blog-header"><a href="<?=\Yii::$app->urlManager->createAbsoluteUrl(['/posts/post/onlineview', 'id' => $model->id, 'title'=>Html::encode(strtoupper($model->title))]); ?>" class="c_black"><?= Html::encode(strtoupper($model->title)); ?></a></h2>
   </div>

@@ -6,6 +6,9 @@ use Yii;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\filters\AccessControl;
+use yii\db\Query;
+use yii\helpers\Json;
+
 use app\components\AccessRule;
 
 /**
@@ -35,7 +38,7 @@ class DefaultController extends Controller
                 ],
                 'rules' => [
                     [
-                        'actions' => ['index'],
+                        'actions' => ['index','tag-list'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -47,5 +50,30 @@ class DefaultController extends Controller
   public function actionIndex()
   {
     return $this->render('index');
+  }
+
+  /**
+   * Will return a JSON array of the matching tags, that may have a content passed over as search
+   * @param  [type] $search Text for the lookuk
+   * @return [type]         [description]
+   */
+  public function actionTagList($search = NULL)
+  {
+    $query = new Query;
+    if(!is_Null($search))
+    {
+      $mainQuery = $query->select('name AS id, name AS text')->distinct()
+        ->from('{{%tag}}')
+        ->where('UPPER(name) LIKE "%'.strtoupper($search).'%"')
+        ->limit(10);
+
+      $command = $mainQuery->createCommand();
+      $rows = $command->queryAll();
+      $clean['results'] = array_values($rows);
+    }
+    $clean['results'][] = ['id'=>$search,'text'=>$search];
+    header('Content-type: application/json');
+    echo Json::encode($clean);
+    exit();
   }
 }
