@@ -5,7 +5,7 @@
 <div class="well">
   <div class="row">
     <div class="col-md-3">
-      <span class="fa-stack fa-lg" style="color:<?=\Yii::$app->user->identity->oeconfig->color; ?>">
+      <span class="fa-stack fa-lg">
         <i class="fa fa-square-o fa-stack-2x"></i>
           <i class="fa fa-user fa-stack-1x"></i>
       </span>
@@ -13,7 +13,6 @@
     <div class="col-md-9">
   <address>
     Benutzer: <strong><?= \Yii::$app->user->identity->username; ?></strong><br>
-    OE: <strong><?= \Yii::$app->user->identity->Boe; ?></strong>    
   </address>        
     </div>
   </div>
@@ -23,14 +22,6 @@
     </div>
     <div class="col-md-10">
       <?= \Yii::$app->user->identity->email; ?>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-2">
-      <abbr title="EMail">LDM:</abbr> 
-    </div>
-    <div class="col-md-10">
-      <?= \Yii::$app->user->identity->OEMail; ?>
     </div>
   </div>
 </div>  

@@ -3,12 +3,11 @@
 namespace frenzelgmbh\sblog\models;
 
 use Yii;
+use yii\helpers\Html;
 
 use app\models\User;
 use app\modules\comments\models\Comment;
-use app\modules\tags\models\Tag;
-
-use yii\helpers\Html;
+use frenzelgmbh\sblog\models\Tag;
 
 use \DateTime;
 
@@ -106,16 +105,6 @@ class Post extends \yii\db\ActiveRecord
 	}
 
 	/**
-	 * [getComments description]
-	 * @return [type] [description]
-	 */
-	public function getComments() {
-		return $this->hasMany('\app\modules\comments\models\Comment', array('comment_id' => 'id')) //
-		            ->where('status = "'. self::STATUS_APPROVED.'" AND comment_table = '.self::MODULE_BLOG)
-					->orderBy('created_at DESC');
-	}
-
-	/**
 	 * [getAuthor description]
 	 * @return [type] [description]
 	 */
@@ -178,23 +167,6 @@ class Post extends \yii\db\ActiveRecord
 	public function normalizeTags($attribute,$params)
 	{
 		$this->tags=Tag::array2string(array_unique(Tag::string2array($this->tags)));
-	}
-
-	/**
-	 * Adds a new comment to this post.
-	 * This method will set status and post_id of the comment accordingly.
-	 * @param Comment the comment to be added
-	 * @return boolean whether the comment is saved successfully
-	 */
-	public function addComment($comment)
-	{
-		if(Yii::$app->params['commentNeedApproval'])
-			$comment->status=self::STATUS_DRAFT;
-		else
-			$comment->status=self::STATUS_APPROVED;
-		$comment->comment_table=self::MODULE_BLOG;
-		$comment->comment_id=$this->id;
-		return $comment->save();
 	}
 
 	/**

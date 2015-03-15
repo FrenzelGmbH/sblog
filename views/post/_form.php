@@ -12,9 +12,6 @@ use yii\helpers\Url;
 use kartik\widgets\Select2;
 use kartik\widgets\DatePicker;
 
-//use app\modules\categories\models\Categories;
-use 
-
 /**
  * @var yii\base\View $this
  * @var frenzelgmbh\sblog\models\Post $model
@@ -41,7 +38,7 @@ use
         ]);?>
       </div>
       <div class="col-md-6">
-        <?= $form->field($model,'status')->dropDownList(Workflow::getStatusOptions()); ?>
+        <?= $form->field($model,'status')->dropDownList($model::getStatusOptions()); ?>
       </div>
     </div>
 
@@ -124,7 +121,7 @@ $tagurl = Url::to(['/tags/default/jsonlist']);
       <div class="col-md-6">
         <?php 
         echo $form->field($model, 'categories_id')->widget(Select2::classname(), [
-          'data' => Categories::getOptions(Workflow::MODULE_BLOG),
+          'data' => ['1'=>'Intern','2'=>'Extern','3'=>'Secret'],
           'options' => ['placeholder' => 'Select a categorie ...'],
           'pluginOptions' => [
               'allowClear' => true
