@@ -26,7 +26,7 @@ $content = $arr[0];
     <?php endif; ?>
 
     <?= frenzelgmbh\sblog\widgets\WidgetBlogMapRender::widget(array(
-    'module'=> app\modules\workflow\models\Workflow::MODULE_BLOG,
+    'module'=> '1',
     'id'    => $model->id
   )); ?> 
 
