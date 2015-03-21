@@ -1,16 +1,16 @@
 <?php
 
-use kartik\widgets\ActiveForm;
 use yii\helpers\Json;
 use yii\web\JsExpression;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 use philippfrenzel\yiiwymeditor\yiiwymeditor;
 
-use kartik\helpers\Html;
-use yii\helpers\Url;
-
 use kartik\widgets\Select2;
 use kartik\widgets\DatePicker;
+use kartik\widgets\ActiveForm;
+
 
 /**
  * @var yii\base\View $this
@@ -99,7 +99,7 @@ $tagurl = Url::to(['/posts/default/tag-list']);
           'options' => ['placeholder' => \Yii::t('app','add tags ...')],
           'addon' => [
             'prepend'=>[
-              'content' => Html::icon('globe')
+              'content' => '<i class="fa fa-globe"></i>'
             ]
           ],
           'pluginOptions'=>[
@@ -130,7 +130,7 @@ $tagurl = Url::to(['/posts/default/tag-list']);
         ?> 
       </div>
     </div>
-
+    
     <?php
 
 $pinterest = <<< SCRIPT
