@@ -33,10 +33,10 @@
 }
 
 .datebox{
-  border-radius: 50%;
-  border: 6px solid white;
+  border-radius: 10%;
+  border: 3px solid white;
   box-shadow: 0px 0px 4px #318A6D;
-  background-color: #b9f2d8;
+  background-color: #efefef;
   height: 60px;
   width: 60px;
   font-family: sans-serif;

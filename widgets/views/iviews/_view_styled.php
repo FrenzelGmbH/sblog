@@ -15,7 +15,7 @@ $content = $arr[0];
     <div class="datebox pull-left c_gray">
       <?= $model->created_at; ?>
     </div>
-    <h2 class="lspace subline blog-header"><a href="<?=\Yii::$app->urlManager->createAbsoluteUrl(['/posts/post/onlineview', 'id' => $model->id, 'title'=>Html::encode(strtoupper($model->title))]); ?>" class="c_black"><?= Html::encode(strtoupper($model->title)); ?></a></h2>
+    <h3 class="lspace"><a href="<?=\Yii::$app->urlManager->createAbsoluteUrl(['/posts/post/onlineview', 'id' => $model->id, 'title'=>Html::encode(strtoupper($model->title))]); ?>" class="c_black"><?= Html::encode(strtoupper($model->title)); ?></a></h3>
   </div>
   
   <div class="post-content">
