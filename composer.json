@@ -28,7 +28,7 @@
     "philippfrenzel/yiiwymeditor":"dev-master",
     "frenzelgmbh/cm-categories":"*",
     "suin/php-rss-writer": ">=1.0",
-    "frenzelgmbh/cm-address" : "dev-master"
+    "frenzelgmbh/cm-address" : "*"
   },
   "autoload": {
     "psr-4": {
